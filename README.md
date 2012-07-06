@@ -1,8 +1,8 @@
 lou-extensions
 ==============
 
-Collection of abandoned extensions for the browser game Lord Of Ultima ("LOU")
-http://www.lordofultima.com/
+Collection of abandoned extensions for the browser game [Lord Of Ultima]http://www.lordofultima.com/ ("LOU")
+
 
 
 description
@@ -13,9 +13,9 @@ I'm also introducing a dynamic plugin model that allows user to choose which of 
 
 lou bos
 -------
-Author: Urthadar (http://userscripts.org/users/211182)
-Script: LoU BoS (http://userscripts.org/scripts/show/84343)
-Version: 1.5.4 (http://userscripts.org/scripts/version/84343/465458.user.js)
+Author: [Urthadar]http://userscripts.org/users/211182
+Script: [LoU BoS]http://userscripts.org/scripts/show/84343
+Version: [1.5.4]http://userscripts.org/scripts/version/84343/465458.user.js
 Plugins:
 * bos.Const
 * bos.gui.ResourcesFillerWidget
