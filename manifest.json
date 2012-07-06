@@ -1,18 +1,24 @@
 {
-    "name": "LOU Extensions",
-    "version": "0.0.1",
-	"manifest_version": 2
-	"description": "Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)",
-    "content_scripts": [ {
-         "exclude_globs": [  ],
-         "exclude_matches": [  ],
-         "include_globs": [ "http://prodgame*.lordofultima.com/*" ],
-         "js": [ "chrome.user.js" ],
-         "matches": [ "http://*/*", "https://*/*" ],
-         "run_at": "document_idle"
-    } ],
-	"minimum_chrome_version": "18",
-    "web_accessible_resources": [
-         "BoS/twitter.js"
+    "name":"LOU Extensions",
+    "version":"0.0.1",
+    "manifest_version":2,
+    "description":"Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)",
+    "converted_from_user_script":true,
+    "content_scripts":[
+        {
+            "exclude_globs":[  ],
+            "exclude_matches":[  ],
+            "include_globs":[ "http://prodgame*.lordofultima.com/*", "http://localhost*" ],
+            "js":[ "chrome.user.js" ],
+            "matches":[ "http://*/*", "https://*/*" ],
+            "run_at":"document_idle"
+        }
+    ],
+    "minimum_chrome_version":"18",
+    "web_accessible_resources":[
+        "manifest.json",
+        "bos/utils.js",
+        "bos/twitter.js",
+        "bos/test.js"
     ]
 }
