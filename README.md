@@ -1,7 +1,7 @@
 lou-extensions
 ==============
 
-Collection of abandoned extensions for the browser game [Lord Of Ultima]http://www.lordofultima.com/ ("LOU")
+Collection of abandoned extensions for the browser game [Lord Of Ultima](http://www.lordofultima.com/) ("LOU")
 
 
 
@@ -11,11 +11,14 @@ This project aims to provide a community driven maintaince for Chrome extension 
 
 I'm also introducing a dynamic plugin model that allows user to choose which of the includes extensions they want to activate. Following is a list of include extensions:
 
-lou bos
--------
-Author: [Urthadar]http://userscripts.org/users/211182
-Script: [LoU BoS]http://userscripts.org/scripts/show/84343
-Version: [1.5.4]http://userscripts.org/scripts/version/84343/465458.user.js
+extension
+---------
+
+### LoU BoS
+
+Author: [Urthadar](http://userscripts.org/users/211182)
+Script: [LoU BoS](http://userscripts.org/scripts/show/84343)
+Version: [1.5.4](http://userscripts.org/scripts/version/84343/465458.user.js)
 Plugins:
 * bos.Const
 * bos.gui.ResourcesFillerWidget
