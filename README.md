@@ -11,14 +11,16 @@ This project aims to provide a community driven maintaince for Chrome extension 
 
 I'm also introducing a dynamic plugin model that allows user to choose which of the includes extensions they want to activate. Following is a list of include extensions:
 
-extension
----------
+extensions
+----------
 
 ### LoU BoS
 
-Author: [Urthadar](http://userscripts.org/users/211182)
-Script: [LoU BoS](http://userscripts.org/scripts/show/84343)
-Version: [1.5.4](http://userscripts.org/scripts/version/84343/465458.user.js)
+Original:
+- Author: [Urthadar](http://userscripts.org/users/211182)
+- Script: [LoU BoS](http://userscripts.org/scripts/show/84343)
+- Version: [1.5.4](http://userscripts.org/scripts/version/84343/465458.user.js)
+
 Plugins:
 * bos.Const
 * bos.gui.ResourcesFillerWidget
