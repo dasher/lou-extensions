@@ -1,3 +1,9 @@
+/**
+ * @see            http://userscripts.org/topics/41177
+ * @copyright      2009, 2010 James Campos
+ * @license        cc-by-3.0; http://creativecommons.org/licenses/by/3.0/
+ */
+
 (function (window, undefined) {
 
     console.log('utils start');
