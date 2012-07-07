@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:25
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.MyAlliancePage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.MyAlliancePage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -98,7 +95,7 @@ loader.addFinishHandler(function() {
 
                 var name = rowData["name"];
                 if (name != null) {
-                    app.showInfoPage(app.getPlayerInfoPage(), {
+                    a.showInfoPage(a.getPlayerInfoPage(), {
                         name: name
                     });
                 }
@@ -135,4 +132,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:31
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.MassRecruitmentPage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.MassRecruitmentPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -561,7 +558,7 @@ loader.addFinishHandler(function() {
 
                 switch (e.getColumn()) {
                     case 0:
-                        app.setMainView("c", cityId, -1, -1);
+                        a.setMainView("c", cityId, -1, -1);
                         break;
                     case 1:
                         //action
@@ -747,4 +744,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

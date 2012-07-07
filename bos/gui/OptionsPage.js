@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:35
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.OptionsPage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.OptionsPage", {
         extend: qx.ui.tabview.Page,
         construct: function() {
@@ -373,4 +370,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

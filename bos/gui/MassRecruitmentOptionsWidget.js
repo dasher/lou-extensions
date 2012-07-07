@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:30
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.MassRecruitmentOptionsWidget");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.MassRecruitmentOptionsWidget", {
         extend: qx.ui.window.Window,
         construct: function() {
@@ -122,8 +119,7 @@ loader.addFinishHandler(function() {
                     left: x + 120,
                     top: y + 6
                 });
-                var app = qx.core.Init.getApplication();
-                app.setElementModalInput(countInput);
+                a.setElementModalInput(countInput);
 
                 var btnMax = new qx.ui.form.Button("Max");
                 btnMax.setWidth(50);
@@ -339,4 +335,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

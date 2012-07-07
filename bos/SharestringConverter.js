@@ -5,10 +5,7 @@
  * Date: 7/07/12
  * Time: 23:44
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.SharestringConverter");
-
+(function (window, undefined) {
     qx.Class.define("bos.SharestringConverter", {
         type: "singleton",
         extend: qx.core.Object,
@@ -155,4 +152,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:40
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.SummaryWidget");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.SummaryWidget", {
         type: "singleton",
         extend: qx.ui.window.Window,
@@ -544,6 +541,7 @@ loader.addFinishHandler(function() {
                         }
                     }
                 }
+
                 return true;
             },
             _addDefendersToRow: function(city, row, sum) {
@@ -633,13 +631,12 @@ loader.addFinishHandler(function() {
                 }
             },
             _forceRegionMap: function() {
-                var app = qx.core.Init.getApplication();
-                if (app.visMain.getMapMode() != "r") {
+                if (a.visMain.getMapMode() != "r") {
                     var cityId = webfrontend.data.City.getInstance().getId();
                     var city = webfrontend.data.Player.getInstance().cities[cityId];
                     var x = city.xPos;
                     var y = city.yPos;
-                    app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                    a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
                 }
             },
             updateView: function(isAutoRefreshed) {
@@ -695,4 +692,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

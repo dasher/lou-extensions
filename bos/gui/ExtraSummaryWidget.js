@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:38
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.ExtraSummaryWidget");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.ExtraSummaryWidget", {
         type: "singleton",
         extend: qx.ui.window.Window,
@@ -94,4 +91,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

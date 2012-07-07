@@ -4,10 +4,7 @@
  * Date: 7/07/12
  * Time: 23:51
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.BatchResourcesFiller");
-
+(function (window, undefined) {
     qx.Class.define("bos.CityTypes", {
         type: "singleton",
         extend: qx.core.Object,
@@ -103,4 +100,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

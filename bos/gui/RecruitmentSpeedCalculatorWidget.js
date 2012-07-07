@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 1:22
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.RecruitmentSpeedCalculatorWidget");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.RecruitmentSpeedCalculatorWidget", {
         type: "singleton",
         extend: webfrontend.gui.OverlayWidget,
@@ -200,4 +197,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

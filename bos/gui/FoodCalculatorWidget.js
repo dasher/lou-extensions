@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 1:20
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.FoodCalculatorWidget");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.FoodCalculatorWidget", {
         type: "singleton",
         extend: webfrontend.gui.OverlayWidget,
@@ -99,8 +96,7 @@ loader.addFinishHandler(function() {
                     left: x + 120,
                     top: y + 6
                 });
-                var app = qx.core.Init.getApplication();
-                app.setElementModalInput(countInput);
+                a.setElementModalInput(countInput);
 
                 var result = {
                     'image': img,
@@ -181,4 +177,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

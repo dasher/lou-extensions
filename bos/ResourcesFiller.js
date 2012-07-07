@@ -4,10 +4,7 @@
  * Date: 7/07/12
  * Time: 23:03
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.ResourcesFiller");
-
+(function (window, undefined) {
     qx.Class.define("bos.ResourcesFiller", {
         type: "singleton",
         extend: qx.core.Object,
@@ -135,4 +132,4 @@ loader.addFinishHandler(function() {
         }
     });
 
-});
+})(window);

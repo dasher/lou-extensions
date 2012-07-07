@@ -17,8 +17,22 @@
     "minimum_chrome_version":"18",
     "web_accessible_resources":[
         "manifest.json",
-        "bos/utils.js",
-        "bos/twitter.js",
-        "bos/test.js"
+        "bos/greasemonkey.light.js",
+        "bos/sprintf-0.7-beta1.js",
+        "bos/Const.js",
+        "bos/Localization.js",
+        "bos/gui/ResourcesFillerWidget.js",
+        "bos/BatchResourcesFiller.js",
+        "bos/ResourcesFiller.js",
+        "bos/Server.js",
+        "bos/Storage.js",
+        "bos/net/CommandManager.js",
+        "bos/Global.js",
+        "bos/Tweaks.js",
+        "bos/SharestringConverter.js",
+        "bos/Utils.js",
+        "bos/CityTypes.js",
+        "bos/City.js",
+        "bos/Main.js",
     ]
 }

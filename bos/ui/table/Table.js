@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:21
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.ui.table.Table");
-
+(function (window, undefined) {
     qx.Class.define("bos.ui.table.Table", {
         extend: qx.ui.table.Table,
         construct: function(tableModel, custom) {
@@ -26,6 +23,7 @@ loader.addFinishHandler(function() {
                 for (var col = 0; col < tcm.getOverallColumnCount(); col++) {
                     tcm.setDataCellRenderer(col, new bos.ui.table.cellrenderer.Default());
                 }
+
             },
             applyTableSettings: function(settings, tableName) {
                 if (settings == null) {
@@ -116,4 +114,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

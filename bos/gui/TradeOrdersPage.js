@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:21
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.TradeOrdersPage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.TradeOrdersPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -225,7 +222,7 @@ loader.addFinishHandler(function() {
                     case 1:
                     case 2:
                         var cityId = parseInt(rowData["cityId"]);
-                        app.setMainView("c", cityId, -1, -1);
+                        a.setMainView("c", cityId, -1, -1);
                         break;
                     case 8:
                     case 9:
@@ -236,7 +233,7 @@ loader.addFinishHandler(function() {
                             if (sepPos > 0) {
                                 var x = parseInt(coords.substring(0, sepPos));
                                 var y = parseInt(coords.substring(sepPos + 1));
-                                app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                                a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
                             }
                         }
                         break;
@@ -329,4 +326,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

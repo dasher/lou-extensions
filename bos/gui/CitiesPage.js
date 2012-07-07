@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:34
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.CitiesPage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.CitiesPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -149,22 +146,22 @@ loader.addFinishHandler(function() {
                         row["wood/h"] = parseInt(city.getResourceGrowPerHour(bos.Const.WOOD));
                         row["woodMax"] = parseInt(city.getResourceMaxStorage(bos.Const.WOOD));
                         row["woodIncoming"] = parseInt(city.getTradeIncomingResources(bos.Const.WOOD));
-                        row["woodFullAt"] = city.getResourceStorageFullTime(bos.Const.WOOD);
+                        row["woodFullAt"] = parseInt(city.getResourceStorageFullTime(bos.Const.WOOD));
                         row["stone"] = parseInt(city.getResourceCount(bos.Const.STONE));
                         row["stone/h"] = parseInt(city.getResourceGrowPerHour(bos.Const.STONE));
                         row["stoneMax"] = parseInt(city.getResourceMaxStorage(bos.Const.STONE));
                         row["stoneIncoming"] = parseInt(city.getTradeIncomingResources(bos.Const.STONE));
-                        row["stoneFullAt"] = city.getResourceStorageFullTime(bos.Const.STONE);
+                        row["stoneFullAt"] = parseInt(city.getResourceStorageFullTime(bos.Const.STONE));
                         row["iron"] = parseInt(city.getResourceCount(bos.Const.IRON));
                         row["iron/h"] = parseInt(city.getResourceGrowPerHour(bos.Const.IRON));
                         row["ironMax"] = parseInt(city.getResourceMaxStorage(bos.Const.IRON));
                         row["ironIncoming"] = parseInt(city.getTradeIncomingResources(bos.Const.IRON));
-                        row["ironFullAt"] = city.getResourceStorageFullTime(bos.Const.IRON);
+                        row["ironFullAt"] = parseInt(city.getResourceStorageFullTime(bos.Const.IRON));
                         row["food"] = parseInt(city.getResourceCount(bos.Const.FOOD));
                         row["food/h"] = parseInt(city.getFoodBalance());
                         row["foodMax"] = parseInt(city.getResourceMaxStorage(bos.Const.FOOD));
                         row["foodIncoming"] = parseInt(city.getTradeIncomingResources(bos.Const.FOOD));
-                        row["foodFullAt"] = city.getResourceStorageFullTime(bos.Const.FOOD);
+                        row["foodFullAt"] = parseInt(city.getResourceStorageFullTime(bos.Const.FOOD));
 
                         row["woodFree"] = row["woodMax"] - row["wood"];
                         row["stoneFree"] = row["stoneMax"] - row["stone"];
@@ -250,11 +247,9 @@ loader.addFinishHandler(function() {
                 if (cityId == "Total") {
                     return;
                 }
-
-                var app = qx.core.Init.getApplication();
                 switch (event.getColumn()) {
                     case 1:
-                        app.setMainView("c", cityId, -1, -1);
+                        a.setMainView("c", cityId, -1, -1);
                         break;
                     case 2:
                         var cities = webfrontend.data.Player.getInstance().cities;
@@ -264,7 +259,7 @@ loader.addFinishHandler(function() {
                             var x = parseInt(city["xPos"], 10);
                             var y = parseInt(city["yPos"], 10);
 
-                            app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                            a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
                         }
                         break;
                 }
@@ -394,4 +389,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

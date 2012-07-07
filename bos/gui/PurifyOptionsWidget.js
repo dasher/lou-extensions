@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:23
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.PurifyOptionsWidget");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.PurifyOptionsWidget", {
         type: "singleton",
         extend: qx.ui.window.Window,
@@ -125,4 +122,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

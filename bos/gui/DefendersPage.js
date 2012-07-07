@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:37
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.DefendersPage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.DefendersPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -152,14 +149,14 @@ loader.addFinishHandler(function() {
                 }
                 switch (event.getColumn()) {
                     case 1:
-                        app.setMainView("c", cityId, -1, -1);
+                        a.setMainView("c", cityId, -1, -1);
                         break;
                     case 2:
                         var cities = webfrontend.data.Player.getInstance().cities;
                         var city = cities[cityId];
                         if (city != null) {
                             var coords = bos.Utils.convertIdToCoordinatesObject(cityId);
-                            app.setMainView('r', 0, coords.xPos * app.visMain.getTileWidth(), coords.yPos * app.visMain.getTileHeight());
+                            a.setMainView('r', 0, coords.xPos * a.visMain.getTileWidth(), coords.yPos * a.visMain.getTileHeight());
                         }
                         break;
                 }
@@ -198,4 +195,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

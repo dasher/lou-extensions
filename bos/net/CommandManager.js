@@ -4,10 +4,7 @@
  * Date: 7/07/12
  * Time: 23:34
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.net.CommandManager");
-
+(function (window, undefined) {
     qx.Class.define("bos.net.CommandManager", {
         type: "singleton",
         extend: qx.core.Object,
@@ -173,4 +170,5 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+
+})(window);

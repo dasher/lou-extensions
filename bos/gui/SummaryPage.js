@@ -4,22 +4,17 @@
  * Date: 8/07/12
  * Time: 0:20
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.SummaryPage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.SummaryPage", {
         extend: qx.ui.tabview.Page,
         construct: function() {
             qx.ui.tabview.Page.call(this);
-            app = qx.core.Init.getApplication();
         },
         members: {
-            app : null,
             _table: null,
             _tableModel: null,
             _addBlankValuesToRow: function(row, tableModel) {
-                //it seems that case insensitive doesn't handle well null values so it's safer to populate row with empty values
+                //it seems that case insensitive doesnt handle well null values so it's safer to populate row with empty values
                 for (var col = 0; col < tableModel.getColumnCount(); col++) {
                     row[tableModel.getColumnId(col)] = "";
                 }
@@ -54,4 +49,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

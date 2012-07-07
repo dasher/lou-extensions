@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:33
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.CastlesPage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.CastlesPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -172,7 +169,7 @@ loader.addFinishHandler(function() {
                 var cityId = rowData["id"];
                 switch (event.getColumn()) {
                     case 1:
-                        app.setMainView("c", cityId, -1, -1);
+                        a.setMainView("c", cityId, -1, -1);
                         break;
                     case 2:
                         var cities = webfrontend.data.Player.getInstance().cities;
@@ -181,7 +178,7 @@ loader.addFinishHandler(function() {
                             var x = parseInt(city["xPos"], 10);
                             var y = parseInt(city["yPos"], 10);
 
-                            app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                            a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
                         }
                         break;
                 }
@@ -234,4 +231,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

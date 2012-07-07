@@ -4,10 +4,7 @@
  * Date: 7/07/12
  * Time: 22:40
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.BatchResourcesFiller");
-
+(function (window, undefined) {
     qx.Class.define("bos.BatchResourcesFiller", {
         type: "singleton",
         extend: qx.core.Object,
@@ -95,4 +92,4 @@ loader.addFinishHandler(function() {
         }
     });
 
-});
+})(window);

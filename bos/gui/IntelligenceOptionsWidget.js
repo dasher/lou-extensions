@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:26
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.IntelligenceOptionsWidget");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.IntelligenceOptionsWidget", {
         extend: qx.ui.window.Window,
         construct: function() {
@@ -110,8 +107,7 @@ loader.addFinishHandler(function() {
                 });
                 this.description = new qx.ui.form.TextField("");
                 this.description.setWidth(320);
-                var app = qx.core.Init.getApplication();
-                app.setElementModalInput(this.description);
+                a.setElementModalInput(this.description);
                 container.add(this.description, {
                     row: row,
                     column : 1
@@ -142,6 +138,7 @@ loader.addFinishHandler(function() {
                 }
             },
             confirm: function() {
+
                 var toX = parseInt(this.toX.getValue(), 10);
                 var toY = parseInt(this.toY.getValue(), 10);
 
@@ -195,4 +192,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);

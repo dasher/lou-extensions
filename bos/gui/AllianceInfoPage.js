@@ -4,10 +4,7 @@
  * Date: 8/07/12
  * Time: 0:29
  */
-loader.addFinishHandler(function() {
-
-    GM_log(" - define bos.gui.AllianceInfoPage");
-
+(function (window, undefined) {
     qx.Class.define("bos.gui.AllianceInfoPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -77,22 +74,20 @@ loader.addFinishHandler(function() {
                 var row = event.getRow();
                 var rowData = this._tableModel.getRowDataAsMap(row);
                 var name = rowData["name"];
-
                 if (name != null) {
-                    app.showInfoPage(app.getPlayerInfoPage(), {
+                    a.showInfoPage(a.getPlayerInfoPage(), {
                         name: name
                     });
                 }
             },
             _createToolBar: function() {
-
                 var toolBar = new qx.ui.groupbox.GroupBox();
                 toolBar.setLayout(new qx.ui.layout.Flow(10, 10));
 
                 this.allianceName = new qx.ui.form.TextField("");
                 this.allianceName.setToolTipText(tr("alliance name"));
                 this.allianceName.setWidth(120);
-                app.setElementModalInput(this.allianceName);
+                a.setElementModalInput(this.allianceName);
                 toolBar.add(this.allianceName);
 
                 var btnUpdateView = new qx.ui.form.Button(tr("refresh"));
@@ -139,4 +134,4 @@ loader.addFinishHandler(function() {
             }
         }
     });
-});
+})(window);
