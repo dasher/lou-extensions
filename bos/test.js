@@ -1,26 +1,18 @@
-function tryStartTest() {
-	console.log('Try test');
-	if (qx != undefined) {
-        startTest();
-	} else {
-        window.setTimeout(tryStartTest, 100);
-	}
-}
+loader.addFinishHandler(function () {
+    try {
+        console.log('Start testje');
 
-window.setTimeout(tryStartTest, 5000);
+        qx.Class.define("twitter.TestWdw",
+            {
+                extend:qx.ui.window.Window,
+                construct:function () {
+                    this.base(arguments, "testje");
+                }
+            });
 
-var startTest = function() {
-
-	console.log('Start test');
-	
-	qx.Class.define("twitter.TestWdw",
-	{
-		extend: qx.ui.window.Window,
-		construct: function () {
-			this.base(arguments, "testje");
-		}
-	});
-
-	var tw = new twitter.TestWdw();
-	tw.show();
-};
+        var tw = new twitter.TestWdw();
+        tw.show();
+    } catch (e) {
+        console.log(e);
+    }
+});

@@ -4,7 +4,10 @@
  * Date: 7/07/12
  * Time: 23:10
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.Storage");
+
     qx.Class.define("bos.Storage", {
         type: "singleton",
         extend: qx.core.Object,
@@ -582,4 +585,4 @@
             }
         }
     });
-})(window);
+});

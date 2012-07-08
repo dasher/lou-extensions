@@ -4,8 +4,11 @@
  * Date: 7/07/12
  * Time: 23:41
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
 
+    GM_log(" - loading bos.Tweaks");
+
+    /**
     function handleError(dp) {
         try {
             var dq = dp.toString();
@@ -29,6 +32,7 @@
             alert("Error in error handler " + e);
         }
     }
+    */
 
     qx.Class.define("bos.Tweaks", {
         type: "singleton",
@@ -574,4 +578,4 @@
             }
         }
     });
-})(window);
+});

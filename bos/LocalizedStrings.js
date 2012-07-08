@@ -4,7 +4,9 @@
  * Date: 7/07/12
  * Time: 21:51
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.LocalizedStrings");
 
     var server;
     var locale = qx.locale.Manager.getInstance().getLocale();
@@ -679,4 +681,4 @@
 
         return messageId;
     }
-})(window);
+});

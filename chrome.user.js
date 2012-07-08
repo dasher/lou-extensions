@@ -43,11 +43,11 @@
                     var resource = manifest.web_accessible_resources[i];
 
                     if (resource.indexOf('.js', resource.length - 3) !== -1) {
-                        GM_log('[lou-extensions] - ' + resource);
+                        GM_log('[lou-extensions] - register ' + resource);
                         lou_extensions.injectJavascriptFile(chrome.extension.getURL(resource));
 
                     } else if (resource.indexOf('.css', resource.length - 4) !== -1) {
-                        GM_log('[lou-extensions] - ' + resource);
+                        GM_log('[lou-extensions] - inject ' + resource);
                         lou_extensions.injectStylesheet(chrome.extension.getURL(resource));
                     }
                 } catch (e) {

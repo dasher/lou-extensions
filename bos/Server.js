@@ -4,7 +4,10 @@
  * Date: 7/07/12
  * Time: 23:06
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.Server");
+
     qx.Class.define("bos.Server", {
         extend: qx.core.Object,
         type: "singleton",
@@ -247,4 +250,4 @@
             }
         }
     });
-})(window);
+});
