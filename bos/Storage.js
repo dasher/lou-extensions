@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.Storage");
+    GM_log(" - define bos.Storage");
 
     qx.Class.define("bos.Storage", {
         type: "singleton",

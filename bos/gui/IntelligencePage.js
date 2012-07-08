@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:27
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.IntelligencePage");
+
     qx.Class.define("bos.gui.IntelligencePage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -359,4 +362,4 @@
             }
         }
     });
-})(window);
+});

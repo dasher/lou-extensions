@@ -4,32 +4,29 @@
  * Date: 8/07/12
  * Time: 0:00
  */
-"use strict";
 
 GM_log(" - loading Main.js");
 
+var a;
 var summaryWidget = null;
 var reportsTweaked = false;
 
-//window.setTimeout(bosCheckIfLoaded, 1000);
-loader.addFinishHandler(bosCheckIfLoaded);
+window.setTimeout(bosCheckIfLoaded, 1000);
 
 function bosCheckIfLoaded() {
-    console.log("[bosCheckIfLoaded] Try loading BoS");
+    if (/*qx.$$domReady == */true) {
+        console.log("[bosCheckIfLoaded] Get application");
+        a = qx.core.Init.getApplication();
 
-    var app = null;
-    if (typeof(qx) != "undefined") {
-        app = qx.core.Init.getApplication();
-        if (app && app.chat && app.cityInfoView && app.title.reportButton) {
+        if (a && a.chat && a.cityInfoView && a.title.reportButton) {
             console.log("[bosCheckIfLoaded] Signal game started to bos.Tweak");
             bos.Tweaks.getInstance().gameStarted();
         } else {
-            console.log("[bosCheckIfLoaded] Retrying in a second because application is not yet ready");
+            console.log("[bosCheckIfLoaded] Retrying in a second");
             window.setTimeout(bosCheckIfLoaded, 1000);
         }
     } else {
         window.setTimeout(bosCheckIfLoaded, 1000);
-        console.log("[bosCheckIfLoaded] Retrying in a second because qx is not yet defined");
     }
 }
 
@@ -71,8 +68,7 @@ function handleError(dp) {
 }
 
 function selectReports(startsWith) {
-    var app = qx.core.Init.getApplication();
-    var rep = app.title.report;
+    var rep = a.title.report;
 
     var select = startsWith != null;
 
@@ -100,8 +96,7 @@ function selectReports(startsWith) {
 }
 
 function _changeCheckState(D, E) {
-    var app = qx.core.Init.getApplication();
-    var rep = app.title.report;
+    var rep = a.title.report;
     for (var key in this.parts) {
         var part = this.parts[key];
         if (part == null || part == "" || (E.s != null && E.s.indexOf(part) > 0)) {
@@ -113,8 +108,7 @@ function _changeCheckState(D, E) {
 }
 
 function exportSelectedReports() {
-    var app = qx.core.Init.getApplication();
-    var rep = app.title.report;
+    var rep = a.title.report;
     var ids = rep.headerData.getSelectedIds();
 
     if (ids.length == 0 || (ids.length == 1 && ids[0] == 0)) {
@@ -133,7 +127,7 @@ function exportSelectedReports() {
     }
 
     var counter = 1;
-    for (var key in ids) {
+    for (key in ids) {
         var id = ids[key];
         bos.net.CommandManager.getInstance().sendCommand("GetReport", {
             id:id
@@ -504,6 +498,8 @@ function dumpObject(obj) {
     debug(qx.util.Json.stringify(obj));
 }
 
+
+
 function jumpCoordsDialog() {
     var wdg = new webfrontend.gui.ConfirmationWidget();
     wdg.askCoords = function () {
@@ -535,12 +531,11 @@ function jumpCoordsDialog() {
 
         var ok = new qx.ui.form.Button("OK").set({width:120});
         ok.addListener("click", function () {
-            var app = qx.core.Init.getApplication();
             crds.getValue().match(/^(\d{1,3}):(\d{1,3})$/);
             var x = parseInt(RegExp.$1, 10);
             var y = parseInt(RegExp.$2, 10);
 
-            app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+            a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
             wdg.disable();
         }, true);
         ok.setEnabled(false);
@@ -548,14 +543,13 @@ function jumpCoordsDialog() {
 
         var c = new qx.ui.form.Button("Cancel").set({width:120});
         c.addListener("click", function () {
-            var app = qx.core.Init.getApplication();
-            app.allowHotKey = true;
+            a.allowHotKey = true;
             wdg.disable();
         }, true);
         this.dialogBackground._add(c, {left:445, top:205});
 
         var validateCoords = function () {
-            var tfc = crds.getValue().match(/^(\d{1,3}):(\d{1,3})$/);
+            tfc = crds.getValue().match(/^(\d{1,3}):(\d{1,3})$/);
             if (tfc == null) {
                 ok.setEnabled(false);
                 return;

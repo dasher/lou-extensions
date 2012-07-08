@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:22
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.TradeRouteWidget");
+
     qx.Class.define("bos.gui.TradeRouteWidget", {
         type: "singleton",
         extend: qx.ui.window.Window,
@@ -426,4 +429,4 @@
             }
         }
     });
-})(window);
+});

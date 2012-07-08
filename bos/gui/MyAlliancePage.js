@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:25
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.MyAlliancePage");
+
     qx.Class.define("bos.gui.MyAlliancePage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -132,4 +135,4 @@
             }
         }
     });
-})(window);
+});

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.Server");
+    GM_log(" - define bos.Server");
 
     qx.Class.define("bos.Server", {
         extend: qx.core.Object,

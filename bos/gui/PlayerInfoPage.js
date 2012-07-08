@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:29
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.PlayerInfoPage");
+
     qx.Class.define("bos.gui.PlayerInfoPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -220,4 +223,4 @@
             }
         }
     });
-})(window);
+});

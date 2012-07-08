@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:32
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.RegionPage");
+
     qx.Class.define("bos.gui.RegionPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -219,4 +222,4 @@
             }
         }
     });
-})(window);
+});

@@ -6,33 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.Tweaks");
-
-    /**
-    function handleError(dp) {
-        try {
-            var dq = dp.toString();
-            var cx = " ";
-            if (dp.hasOwnProperty("fileName")) dq += cx + dp.fileName;
-            if (dp.getUri != null) dq += cx + dp.getUri();
-            if (dp.hasOwnProperty("lineNumber")) dq += cx + dp.lineNumber;
-            if (dp.getLineNumber != null) dq += cx + dp.getLineNumber();
-            if (dp.hasOwnProperty("stack")) dq += cx + dp.stack;
-
-            dq = qx.util.Json.stringify(dq);
-
-            var msg = "{error:" + dq + "}";
-
-            if (console.log != undefined) {
-                console.log(msg);
-            } else {
-                alert(msg);
-            }
-        } catch (e) {
-            alert("Error in error handler " + e);
-        }
-    }
-    */
+    GM_log(" - define bos.Tweaks");
 
     qx.Class.define("bos.Tweaks", {
         type: "singleton",
@@ -40,7 +14,6 @@ loader.addFinishHandler(function() {
         members: {
             gameStarted: function() {
                 trace("In gameStarted");
-
                 this.tweakErrorReporting();
                 var res = webfrontend.res.Main.getInstance();
 
@@ -53,7 +26,7 @@ loader.addFinishHandler(function() {
                     btnSummary.setHeight(32);
                     container._add(btnSummary, {
                         row: 0,
-                        column: 11
+                        column: 12
                     });
                     btnSummary.addListener("click", function (event) {
                         bos.Tweaks.getInstance().showSummary();
@@ -176,7 +149,7 @@ loader.addFinishHandler(function() {
                     });
                     container._add(btnMenu, {
                         row: 0,
-                        column: 12
+                        column: 13
                     });
 
                     var zoomSlider = new qx.ui.form.Slider().set({

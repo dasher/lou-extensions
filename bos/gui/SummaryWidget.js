@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:40
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.SummaryWidget");
+
     qx.Class.define("bos.gui.SummaryWidget", {
         type: "singleton",
         extend: qx.ui.window.Window,
@@ -541,7 +544,6 @@
                         }
                     }
                 }
-
                 return true;
             },
             _addDefendersToRow: function(city, row, sum) {
@@ -692,4 +694,4 @@
             }
         }
     });
-})(window);
+});

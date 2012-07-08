@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 1:20
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.FoodCalculatorWidget");
+
     qx.Class.define("bos.gui.FoodCalculatorWidget", {
         type: "singleton",
         extend: webfrontend.gui.OverlayWidget,
@@ -177,4 +180,4 @@
             }
         }
     });
-})(window);
+});
