@@ -4,7 +4,10 @@
  * Date: 7/07/12
  * Time: 23:51
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.BatchResourcesFiller");
+
     qx.Class.define("bos.CityTypes", {
         type: "singleton",
         extend: qx.core.Object,
@@ -100,4 +103,4 @@
             }
         }
     });
-})(window);
+});

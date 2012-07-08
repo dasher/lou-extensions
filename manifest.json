@@ -11,7 +11,7 @@
             "include_globs":[ "http://prodgame*.lordofultima.com/*", "http://localhost*" ],
             "js":[ "chrome.user.js" ],
             "matches":[ "http://*/*", "https://*/*" ],
-            "run_at":"document_idle"
+            "run_at":"document_end"
         }
     ],
     "minimum_chrome_version":"18",
@@ -20,7 +20,7 @@
         "bos/greasemonkey.light.js",
         "bos/sprintf-0.7-beta1.js",
         "bos/Const.js",
-        "bos/Localization.js",
+        "bos/LocalizedStrings.js",
         "bos/gui/ResourcesFillerWidget.js",
         "bos/BatchResourcesFiller.js",
         "bos/ResourcesFiller.js",
@@ -32,7 +32,6 @@
         "bos/SharestringConverter.js",
         "bos/Utils.js",
         "bos/CityTypes.js",
-        "bos/City.js",
-        "bos/Main.js",
+        "bos/City.js"
     ]
 }

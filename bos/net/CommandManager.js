@@ -4,7 +4,10 @@
  * Date: 7/07/12
  * Time: 23:34
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.net.CommandManager");
+
     qx.Class.define("bos.net.CommandManager", {
         type: "singleton",
         extend: qx.core.Object,
@@ -170,5 +173,4 @@
             }
         }
     });
-
-})(window);
+});

@@ -5,7 +5,10 @@
  * Date: 7/07/12
  * Time: 23:44
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.SharestringConverter");
+
     qx.Class.define("bos.SharestringConverter", {
         type: "singleton",
         extend: qx.core.Object,
@@ -152,4 +155,4 @@
             }
         }
     });
-})(window);
+});

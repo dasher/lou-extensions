@@ -4,7 +4,9 @@
  * Date: 8/07/12
  * Time: 0:00
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.BatchResourcesFiller");
 
     var a;
     var summaryWidget = null;
@@ -549,4 +551,4 @@
         }
         return wdg;
     }
-})(window);
+});

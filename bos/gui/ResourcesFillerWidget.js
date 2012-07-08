@@ -4,7 +4,9 @@
  * Date: 7/07/12
  * Time: 22:37
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.ResourcesFillerWidget");
 
     qx.Class.define("bos.gui.ResourcesFillerWidget", {
         type: "singleton",
@@ -303,6 +305,4 @@
             }
         }
     });
-
-
-})(window);
+});

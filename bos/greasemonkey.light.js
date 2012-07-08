@@ -6,7 +6,7 @@
 
 (function (window, undefined) {
 
-    console.log('utils start');
+    console.log(" - loading greasemonkey.light");
 
     if (typeof GM_deleteValue == 'undefined') {
 
@@ -45,9 +45,4 @@
             localStorage.setItem(name, value);
         };
     }
-
-    console.log('utils done');
-
-    GM_log('gm log utils done');
-
 })(window);
