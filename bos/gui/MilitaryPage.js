@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:36
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.MilitaryPage");
+
     qx.Class.define("bos.gui.MilitaryPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -182,4 +185,4 @@
             }
         }
     });
-})(window);
+});

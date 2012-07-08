@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 1:23
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.CombatCalculatorWidget");
+
     qx.Class.define("bos.gui.CombatCalculatorWidget", {
         type: "singleton",
         extend: webfrontend.gui.OverlayWidget,
@@ -1224,4 +1227,4 @@
             }
         }
     });
-})(window);
+});

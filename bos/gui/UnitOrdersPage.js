@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:32
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.UnitOrdersPage");
+
     qx.Class.define("bos.gui.UnitOrdersPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -446,4 +449,4 @@
             }
         }
     });
-})(window);
+});

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.Utils");
+    GM_log(" - define bos.Utils");
 
     qx.Class.define("bos.Utils", {
         type: "singleton",

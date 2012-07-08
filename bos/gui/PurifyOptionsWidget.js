@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:23
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.PurifyOptionsWidget");
+
     qx.Class.define("bos.gui.PurifyOptionsWidget", {
         type: "singleton",
         extend: qx.ui.window.Window,
@@ -122,4 +125,4 @@
             }
         }
     });
-})(window);
+});

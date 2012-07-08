@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:35
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.OptionsPage");
+
     qx.Class.define("bos.gui.OptionsPage", {
         extend: qx.ui.tabview.Page,
         construct: function() {
@@ -370,4 +373,4 @@
             }
         }
     });
-})(window);
+});

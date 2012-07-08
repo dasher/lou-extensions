@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:21
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.TradeOrdersPage");
+
     qx.Class.define("bos.gui.TradeOrdersPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -326,4 +329,4 @@
             }
         }
     });
-})(window);
+});

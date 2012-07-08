@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 1:22
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.RecruitmentSpeedCalculatorWidget");
+
     qx.Class.define("bos.gui.RecruitmentSpeedCalculatorWidget", {
         type: "singleton",
         extend: webfrontend.gui.OverlayWidget,
@@ -197,4 +200,4 @@
             }
         }
     });
-})(window);
+});

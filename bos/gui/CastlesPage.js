@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:33
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.CastlesPage");
+
     qx.Class.define("bos.gui.CastlesPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -231,4 +234,4 @@
             }
         }
     });
-})(window);
+});

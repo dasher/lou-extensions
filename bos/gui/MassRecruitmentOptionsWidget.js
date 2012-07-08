@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:30
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.MassRecruitmentOptionsWidget");
+
     qx.Class.define("bos.gui.MassRecruitmentOptionsWidget", {
         extend: qx.ui.window.Window,
         construct: function() {
@@ -335,4 +338,4 @@
             }
         }
     });
-})(window);
+});

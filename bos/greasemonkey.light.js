@@ -6,7 +6,7 @@
 
 (function (window, undefined) {
 
-    console.log(" - loading greasemonkey.light");
+    console.log(" - loading greasemonkey.light.js");
 
     if (typeof GM_deleteValue == 'undefined') {
 

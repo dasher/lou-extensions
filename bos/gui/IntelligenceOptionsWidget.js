@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:26
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.IntelligenceOptionsWidget");
+
     qx.Class.define("bos.gui.IntelligenceOptionsWidget", {
         extend: qx.ui.window.Window,
         construct: function() {
@@ -192,4 +195,4 @@
             }
         }
     });
-})(window);
+});

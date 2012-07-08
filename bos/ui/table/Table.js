@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:21
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.ui.table.Table");
+
     qx.Class.define("bos.ui.table.Table", {
         extend: qx.ui.table.Table,
         construct: function(tableModel, custom) {
@@ -114,4 +117,4 @@
             }
         }
     });
-})(window);
+});

@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:34
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.CitiesPage");
+
     qx.Class.define("bos.gui.CitiesPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -389,4 +392,4 @@
             }
         }
     });
-})(window);
+});

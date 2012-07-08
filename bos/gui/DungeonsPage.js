@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:33
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.DungeonsPage");
+
     qx.Class.define("bos.gui.DungeonsPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -207,4 +210,4 @@
             }
         }
     });
-})(window);
+});

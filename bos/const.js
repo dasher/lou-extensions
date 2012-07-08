@@ -1,6 +1,6 @@
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.Const");
+    GM_log(" - define bos.Const");
 
     qx.Class.define("bos.Const", {
         statics:{

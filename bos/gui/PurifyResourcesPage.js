@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 0:23
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.gui.PurifyResourcesPage");
+
     qx.Class.define("bos.gui.PurifyResourcesPage", {
         extend: bos.gui.SummaryPage,
         construct: function() {
@@ -460,4 +463,4 @@
             }
         }
     });
-})(window);
+});

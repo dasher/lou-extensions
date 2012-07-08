@@ -4,7 +4,10 @@
  * Date: 8/07/12
  * Time: 1:30
  */
-(function (window, undefined) {
+loader.addFinishHandler(function() {
+
+    GM_log(" - loading bos.ui.table.cellrenderer.ClickableLook");
+
     qx.Class.define("bos.ui.table.cellrenderer.ClickableLook", {
         extend: bos.ui.table.cellrenderer.Default,
         members: {
@@ -26,4 +29,4 @@
              }*/
         }
     });
-})(window);
+});

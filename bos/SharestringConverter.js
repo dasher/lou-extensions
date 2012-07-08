@@ -7,7 +7,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.SharestringConverter");
+    GM_log(" - define bos.SharestringConverter");
 
     qx.Class.define("bos.SharestringConverter", {
         type: "singleton",
