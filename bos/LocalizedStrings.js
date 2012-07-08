@@ -5,15 +5,13 @@
  * Time: 21:51
  */
 
-/**
- * loader.addFinishHandler(function () {
- *
- *    GM_log(" - loading bos.LocalizedStrings");
- *
- *    var server;
- *    var locale = qx.locale.Manager.getInstance().getLocale();
- * });
- */
+//var server;
+var locale = null;
+
+loader.addFinishHandler(function () {
+    GM_log(" - get locale");
+    locale = qx.locale.Manager.getInstance().getLocale();
+});
 
 GM_log(" - loading LocalizedStrings.js");
 

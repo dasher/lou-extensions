@@ -4,29 +4,29 @@
  * Date: 8/07/12
  * Time: 0:00
  */
-
 GM_log(" - loading Main.js");
 
 var a;
 var summaryWidget = null;
 var reportsTweaked = false;
 
-window.setTimeout(bosCheckIfLoaded, 1000);
+//window.setTimeout(bosCheckIfLoaded, 1000);
+loader.addFinishHandler(bosCheckIfLoaded);
 
 function bosCheckIfLoaded() {
-    if (/*qx.$$domReady == */true) {
-        console.log("[bosCheckIfLoaded] Get application");
+    console.log("[bosCheckIfLoaded] Try loading BoS");
+    if (typeof(qx) != "undefined") {
         a = qx.core.Init.getApplication();
-
         if (a && a.chat && a.cityInfoView && a.title.reportButton) {
             console.log("[bosCheckIfLoaded] Signal game started to bos.Tweak");
             bos.Tweaks.getInstance().gameStarted();
         } else {
-            console.log("[bosCheckIfLoaded] Retrying in a second");
+            console.log("[bosCheckIfLoaded] Retrying in a second because application is not yet ready");
             window.setTimeout(bosCheckIfLoaded, 1000);
         }
     } else {
         window.setTimeout(bosCheckIfLoaded, 1000);
+        console.log("[bosCheckIfLoaded] Retrying in a second because qx is not yet defined");
     }
 }
 
@@ -56,6 +56,8 @@ function handleError(dp) {
         dq = qx.util.Json.stringify(dq);
 
         var msg = "{error:" + dq + "}";
+
+        debugger;
 
         if (console.log != undefined) {
             console.log(msg);
@@ -497,8 +499,6 @@ function trace(sMsg) {
 function dumpObject(obj) {
     debug(qx.util.Json.stringify(obj));
 }
-
-
 
 function jumpCoordsDialog() {
     var wdg = new webfrontend.gui.ConfirmationWidget();
