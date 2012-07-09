@@ -23,6 +23,9 @@ loader.addFinishHandler(function() {
                 this.setDataRowRenderer(new webfrontend.gui.RowRendererCustom(this, focusedRowBGColor, focusedRowBGColor, rowBGColor, rowBGColor, rowBGColor, rowBGColor, rowBGColor, rowBGColor, rowBGColor));
                 this.setHeaderCellHeight(22);
                 var tcm = this.getTableColumnModel();
+
+                debugger;
+
                 for (var col = 0; col < tcm.getOverallColumnCount(); col++) {
                     tcm.setDataCellRenderer(col, new bos.ui.table.cellrenderer.Default());
                 }
