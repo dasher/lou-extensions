@@ -19,6 +19,8 @@ loader.addFinishHandler(function() {
 
                 try {
                     var container = a.title.reportButton.getLayoutParent();
+                    var menuColumns = container.getChildren().length;
+
                     var btnSummary = new qx.ui.form.Button(tr("summary")).set({
                         marginLeft: 10
                     });
@@ -26,7 +28,7 @@ loader.addFinishHandler(function() {
                     btnSummary.setHeight(32);
                     container._add(btnSummary, {
                         row: 0,
-                        column: 12
+                        column: menuColumns + 1
                     });
                     btnSummary.addListener("click", function (event) {
                         bos.Tweaks.getInstance().showSummary();
@@ -147,9 +149,11 @@ loader.addFinishHandler(function() {
                     var btnMenu = new qx.ui.form.MenuButton("BOS Tools", null, menu).set({
                         marginLeft: 10
                     });
+
+                    menuColumns = container.getChildren().length;
                     container._add(btnMenu, {
                         row: 0,
-                        column: 13
+                        column: menuColumns + 1
                     });
 
                     var zoomSlider = new qx.ui.form.Slider().set({
