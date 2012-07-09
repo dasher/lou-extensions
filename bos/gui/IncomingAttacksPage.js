@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.IncomingAttacksPage");
+    GM_log(" - define bos.gui.IncomingAttacksPage");
 
     qx.Class.define("bos.gui.IncomingAttacksPage", {
         extend: bos.gui.SummaryPage,

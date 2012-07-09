@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.UnitOrdersPage");
+    GM_log(" - define bos.gui.UnitOrdersPage");
 
     qx.Class.define("bos.gui.UnitOrdersPage", {
         extend: bos.gui.SummaryPage,

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.ExtraSummaryWidget");
+    GM_log(" - define bos.gui.ExtraSummaryWidget");
 
     qx.Class.define("bos.gui.ExtraSummaryWidget", {
         type: "singleton",

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.ui.table.Table");
+    GM_log(" - define bos.ui.table.Table");
 
     qx.Class.define("bos.ui.table.Table", {
         extend: qx.ui.table.Table,
@@ -23,13 +23,9 @@ loader.addFinishHandler(function() {
                 this.setDataRowRenderer(new webfrontend.gui.RowRendererCustom(this, focusedRowBGColor, focusedRowBGColor, rowBGColor, rowBGColor, rowBGColor, rowBGColor, rowBGColor, rowBGColor, rowBGColor));
                 this.setHeaderCellHeight(22);
                 var tcm = this.getTableColumnModel();
-
-                debugger;
-
                 for (var col = 0; col < tcm.getOverallColumnCount(); col++) {
                     tcm.setDataCellRenderer(col, new bos.ui.table.cellrenderer.Default());
                 }
-
             },
             applyTableSettings: function(settings, tableName) {
                 if (settings == null) {

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.IntelligenceOptionsWidget");
+    GM_log(" - define bos.gui.IntelligenceOptionsWidget");
 
     qx.Class.define("bos.gui.IntelligenceOptionsWidget", {
         extend: qx.ui.window.Window,

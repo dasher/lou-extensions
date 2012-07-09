@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.CastlesPage");
+    GM_log(" - define bos.gui.CastlesPage");
 
     qx.Class.define("bos.gui.CastlesPage", {
         extend: bos.gui.SummaryPage,

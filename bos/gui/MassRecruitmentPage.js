@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.MassRecruitmentPage");
+    GM_log(" - define bos.gui.MassRecruitmentPage");
 
     qx.Class.define("bos.gui.MassRecruitmentPage", {
         extend: bos.gui.SummaryPage,

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.SummaryPage");
+    GM_log(" - define bos.gui.SummaryPage");
 
     qx.Class.define("bos.gui.SummaryPage", {
         extend: qx.ui.tabview.Page,

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.PurifyResourcesPage");
+    GM_log(" - define bos.gui.PurifyResourcesPage");
 
     qx.Class.define("bos.gui.PurifyResourcesPage", {
         extend: bos.gui.SummaryPage,

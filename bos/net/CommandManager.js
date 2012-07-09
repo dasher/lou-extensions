@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.net.CommandManager");
+    GM_log(" - define bos.net.CommandManager");
 
     qx.Class.define("bos.net.CommandManager", {
         type: "singleton",

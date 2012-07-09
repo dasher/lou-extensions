@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.DefendersPage");
+    GM_log(" - define bos.gui.DefendersPage");
 
     qx.Class.define("bos.gui.DefendersPage", {
         extend: bos.gui.SummaryPage,

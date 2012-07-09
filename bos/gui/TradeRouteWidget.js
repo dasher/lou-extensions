@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.TradeRouteWidget");
+    GM_log(" - define bos.gui.TradeRouteWidget");
 
     qx.Class.define("bos.gui.TradeRouteWidget", {
         type: "singleton",

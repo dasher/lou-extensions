@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.TradeRoutesPage");
+    GM_log(" - define bos.gui.TradeRoutesPage");
 
     qx.Class.define("bos.gui.TradeRoutesPage", {
         extend: bos.gui.SummaryPage,

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.IntelligencePage");
+    GM_log(" - define bos.gui.IntelligencePage");
 
     qx.Class.define("bos.gui.IntelligencePage", {
         extend: bos.gui.SummaryPage,

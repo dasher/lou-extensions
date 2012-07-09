@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.FoodCalculatorWidget");
+    GM_log(" - define bos.gui.FoodCalculatorWidget");
 
     qx.Class.define("bos.gui.FoodCalculatorWidget", {
         type: "singleton",

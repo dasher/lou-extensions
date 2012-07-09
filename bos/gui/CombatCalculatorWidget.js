@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.CombatCalculatorWidget");
+    GM_log(" - define bos.gui.CombatCalculatorWidget");
 
     qx.Class.define("bos.gui.CombatCalculatorWidget", {
         type: "singleton",

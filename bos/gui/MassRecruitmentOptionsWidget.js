@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.MassRecruitmentOptionsWidget");
+    GM_log(" - define bos.gui.MassRecruitmentOptionsWidget");
 
     qx.Class.define("bos.gui.MassRecruitmentOptionsWidget", {
         extend: qx.ui.window.Window,

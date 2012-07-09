@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.MilitaryPage");
+    GM_log(" - define bos.gui.MilitaryPage");
 
     qx.Class.define("bos.gui.MilitaryPage", {
         extend: bos.gui.SummaryPage,

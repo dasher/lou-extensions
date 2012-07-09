@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.RegionPage");
+    GM_log(" - define bos.gui.RegionPage");
 
     qx.Class.define("bos.gui.RegionPage", {
         extend: bos.gui.SummaryPage,

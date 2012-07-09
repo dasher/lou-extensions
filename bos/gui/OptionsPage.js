@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.OptionsPage");
+    GM_log(" - define bos.gui.OptionsPage");
 
     qx.Class.define("bos.gui.OptionsPage", {
         extend: qx.ui.tabview.Page,

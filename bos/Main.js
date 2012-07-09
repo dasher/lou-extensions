@@ -57,8 +57,6 @@ function handleError(dp) {
 
         var msg = "{error:" + dq + "}";
 
-        debugger;
-
         if (console.log != undefined) {
             console.log(msg);
         } else {

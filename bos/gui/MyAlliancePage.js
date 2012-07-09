@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.MyAlliancePage");
+    GM_log(" - define bos.gui.MyAlliancePage");
 
     qx.Class.define("bos.gui.MyAlliancePage", {
         extend: bos.gui.SummaryPage,
