@@ -98,7 +98,7 @@ loader.addFinishHandler(function() {
 
                 var name = rowData["name"];
                 if (name != null) {
-                    a.showInfoPage(a.getPlayerInfoPage(), {
+                    app.showInfoPage(app.getPlayerInfoPage(), {
                         name: name
                     });
                 }

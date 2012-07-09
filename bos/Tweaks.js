@@ -12,13 +12,16 @@ loader.addFinishHandler(function() {
         type: "singleton",
         extend: qx.core.Object,
         members: {
+            app: null,
             gameStarted: function() {
                 trace("In gameStarted");
+                app = qx.core.Init.getApplication();
+
                 this.tweakErrorReporting();
                 var res = webfrontend.res.Main.getInstance();
 
                 try {
-                    var container = a.title.reportButton.getLayoutParent();
+                    var container = app.title.reportButton.getLayoutParent();
                     var menuColumns = container.getChildren().length;
 
                     var btnSummary = new qx.ui.form.Button(tr("summary")).set({
@@ -72,7 +75,7 @@ loader.addFinishHandler(function() {
                         var name = prompt(tr("please enter player name:"), "");
                         if (name != null && name != "") {
                             //webfrontend.gui.Util.openPlayerProfile(name);
-                            a.showInfoPage(a.getPlayerInfoPage(), {
+                            app.showInfoPage(app.getPlayerInfoPage(), {
                                 name: name
                             });
                         }
@@ -83,7 +86,7 @@ loader.addFinishHandler(function() {
                         var name = prompt(tr("please enter alliance name:"), "");
                         if (name != null && name != "") {
                             //webfrontend.gui.Util.openAllianceProfile(name);
-                            a.showInfoPage(a.getAllianceInfoPage(), {
+                            app.showInfoPage(app.getAllianceInfoPage(), {
                                 name: name
                             });
                         }
@@ -103,7 +106,7 @@ loader.addFinishHandler(function() {
                             var x = Math.floor(col * width + 0.5 * width);
                             var y = Math.floor(row * height + 0.5 * height);
 
-                            a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                            app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                         }
                     });
 
@@ -192,13 +195,13 @@ loader.addFinishHandler(function() {
                     bos.Utils.handleError(tr("error during BOS Tools menu creation: ") + e);
                 }
 
-                a.overlaySizes[bos.Const.EXTRA_WIDE_OVERLAY] = {
+                app.overlaySizes[bos.Const.EXTRA_WIDE_OVERLAY] = {
                     width: 0,
                     height: 0
                 };
 
-                var pos = a.overlayPositions[0];
-                a.overlayPositions[bos.Const.EXTRA_WIDE_OVERLAY] = {
+                var pos = app.overlayPositions[0];
+                app.overlayPositions[bos.Const.EXTRA_WIDE_OVERLAY] = {
                     left: pos.left,
                     top: pos.top,
                     bottom: pos.bottom
@@ -296,10 +299,10 @@ loader.addFinishHandler(function() {
                 //for city view
                 try {
                     if (qx.bom.client.Engine.GECKO) {
-                        a.visMain.scene.domRoot.style.MozTransform = "scale(" + zoom + ")";
-                        a.visMain.scene.domRoot.style["overflow"] = "hidden";
+                        app.visMain.scene.domRoot.style.MozTransform = "scale(" + zoom + ")";
+                        app.visMain.scene.domRoot.style["overflow"] = "hidden";
                     } else {
-                        a.visMain.scene.domRoot.style["zoom"] = zoom;
+                        app.visMain.scene.domRoot.style["zoom"] = zoom;
                     }
                 } catch (ex) {
                     //ignore any exception
@@ -327,10 +330,10 @@ loader.addFinishHandler(function() {
                 }
 
                 trace("in tweakReports");
-                //a.title.reportButton.removeListener(a.title.reportButton, reportsBtnListener);
+                //app.title.reportButton.removeListener(app.title.reportButton, reportsBtnListener);
 
                 //webfrontend.gui.ReportListWidget
-                var rep = a.title.report;
+                var rep = app.title.report;
                 if (rep == null) {
                     debug("rep is NULL");
                     return;
@@ -405,7 +408,7 @@ loader.addFinishHandler(function() {
                 behavior.setWidth(2, 90);
 
                 //webfrontend.gui.ReportPage
-                var reportPage = a.getReportPage();
+                var reportPage = app.getReportPage();
                 var widgets = reportPage.getChildren();
                 var container = widgets[widgets.length - 1];
                 var btnExportThisReport = new qx.ui.form.Button("Export");
@@ -454,23 +457,22 @@ loader.addFinishHandler(function() {
 
             },
             tweakChat: function() {
-                var cls = a.chat;
+                var cls = app.chat;
                 if (cls.oldOnNewMessage != undefined) {
                     //already applied
                     return;
                 }
 
-                a.chat.tabView.addListener("changeSelection", this._onChatChangeTab, this);
-                a.chat.tabView.setSelection([a.chat.tabView.getChildren()[1]]);
+                app.chat.tabView.addListener("changeSelection", this._onChatChangeTab, this);
+                app.chat.tabView.setSelection([app.chat.tabView.getChildren()[1]]);
 
                 this._onChatChangeTab();
 
                 cls.oldOnNewMessage = cls._onNewMessage;
-
             },
             _onChatChangeTab: function(event) {
-                var chatId = a.chat.tabView.getSelection()[0].getUserData("ID");
-                var ch = a.chat.chatLine;
+                var chatId = app.chat.tabView.getSelection()[0].getUserData("ID");
+                var ch = app.chat.chatLine;
 
                 switch (chatId) {
                     case 0:
@@ -488,11 +490,13 @@ loader.addFinishHandler(function() {
             showJumpToCoordsDialog: function() {
                 var cwac = jumpCoordsDialog();
                 cwac.askCoords();
-                a.allowHotKey = false;
-                qx.core.Init.getApplication().getDesktop().add(cwac, {left: 0, right: 0, top: 0, bottom: 0});
+                app.allowHotKey = false;
+                //qx.core.Init.getApplication().getDesktop().add(cwac, {left: 0, right: 0, top: 0, bottom: 0});
+                app.getDesktop().add(cwac, {left: 0, right: 0, top: 0, bottom: 0});
                 cwac.show();
             },
             showSummary: function() {
+
                 var server = bos.Server.getInstance();
                 server.updateCity();
 
@@ -509,30 +513,30 @@ loader.addFinishHandler(function() {
                 server.updateCity();
                 var widget = this.getCombatCalculatorWidget();
                 //widget.updateView();
-                if (a.getCurrentOverlay() == widget) {
-                    a.switchOverlay(null);
+                if (app.getCurrentOverlay() == widget) {
+                    app.switchOverlay(null);
                 } else {
-                    a.switchOverlay(widget, bos.Const.EXTRA_WIDE_OVERLAY);
+                    app.switchOverlay(widget, bos.Const.EXTRA_WIDE_OVERLAY);
                 }
             },
             showFoodCalc: function() {
                 var server = bos.Server.getInstance();
                 server.updateCity();
                 var widget = this.getFoodCalculatorWidget();
-                if (a.getCurrentOverlay() == widget) {
-                    a.switchOverlay(null);
+                if (app.getCurrentOverlay() == widget) {
+                    app.switchOverlay(null);
                 } else {
-                    a.switchOverlay(widget);
+                    app.switchOverlay(widget);
                 }
             },
             showRecruitmentSpeedCalc: function () {
                 var server = bos.Server.getInstance();
                 server.updateCity();
                 var widget = this.getRecruitmentSpeedCalculatorWidget();
-                if (a.getCurrentOverlay() == widget) {
-                    a.switchOverlay(null);
+                if (app.getCurrentOverlay() == widget) {
+                    app.switchOverlay(null);
                 } else {
-                    a.switchOverlay(widget);
+                    app.switchOverlay(widget);
                 }
             },
             getCombatCalculatorWidget: function() {

@@ -305,7 +305,7 @@ loader.addFinishHandler(function() {
                     case 2:
                         var cityId = parseInt(rowData["targetCityId"]);
                         if (!isNaN(cityId)) {
-                            a.setMainView("c", cityId, -1, -1);
+                            app.setMainView("c", cityId, -1, -1);
                             break;
                         }
                     //yes, I dont want break here
@@ -317,7 +317,7 @@ loader.addFinishHandler(function() {
                             if (sepPos > 0) {
                                 var x = parseInt(coords.substring(0, sepPos), 10);
                                 var y = parseInt(coords.substring(sepPos + 1), 10);
-                                a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                                app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                             }
                         }
                         break;
@@ -334,7 +334,7 @@ loader.addFinishHandler(function() {
                                 if (event.getColumn() != 12) {
                                     webfrontend.gui.Util.openCityProfile(x, y);
                                 } else {
-                                    a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                                    app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                                 }
 
                             }
@@ -342,13 +342,13 @@ loader.addFinishHandler(function() {
                         break;
                     case 13:
                     case 14:
-                        a.showInfoPage(a.getPlayerInfoPage(), {
+                        app.showInfoPage(app.getPlayerInfoPage(), {
                             name: rowData["playerName"]
                         });
                         break;
                     case 15:
                     case 16:
-                        a.showInfoPage(a.getAllianceInfoPage(), {
+                        app.showInfoPage(app.getAllianceInfoPage(), {
                             name: rowData["allianceName"]
                         });
                         break;

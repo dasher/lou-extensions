@@ -129,7 +129,7 @@ loader.addFinishHandler(function() {
                     if (sepPos > 0) {
                         var x = parseInt(coords.substring(0, sepPos), 10);
                         var y = parseInt(coords.substring(sepPos + 1), 10);
-                        a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                        app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                     }
                 }
             },
@@ -140,7 +140,7 @@ loader.addFinishHandler(function() {
                 this.playerName = new qx.ui.form.TextField("");
                 this.playerName.setToolTipText(tr("player name"));
                 this.playerName.setWidth(120);
-                a.setElementModalInput(this.playerName);
+                app.setElementModalInput(this.playerName);
                 toolBar.add(this.playerName);
 
                 var btnUpdateView = new qx.ui.form.Button(tr("refresh"));

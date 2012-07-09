@@ -122,7 +122,8 @@ loader.addFinishHandler(function() {
                     left: x + 120,
                     top: y + 6
                 });
-                a.setElementModalInput(countInput);
+                var app = qx.core.Init.getApplication();
+                app.setElementModalInput(countInput);
 
                 var btnMax = new qx.ui.form.Button("Max");
                 btnMax.setWidth(50);

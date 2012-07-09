@@ -1,4 +1,5 @@
 /// Dynamic script loader for lou-extensions in Google Chrome.
+"use strict";
 /**
  * @namespace lou_extensions
  */

@@ -155,12 +155,12 @@ loader.addFinishHandler(function() {
                             if (sepPos > 0) {
                                 var x = parseInt(coords.substring(0, sepPos), 10);
                                 var y = parseInt(coords.substring(sepPos + 1), 10);
-                                a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                                app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                             }
                         }
                         break;
                     case 5:
-                        a.showInfoPage(a.getPlayerInfoPage(), {
+                        app.showInfoPage(app.getPlayerInfoPage(), {
                             name: rowData["owner"]
                         });
                         break;

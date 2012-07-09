@@ -110,7 +110,8 @@ loader.addFinishHandler(function() {
                 });
                 this.description = new qx.ui.form.TextField("");
                 this.description.setWidth(320);
-                a.setElementModalInput(this.description);
+                var app = qx.core.Init.getApplication();
+                app.setElementModalInput(this.description);
                 container.add(this.description, {
                     row: row,
                     column : 1
@@ -141,7 +142,6 @@ loader.addFinishHandler(function() {
                 }
             },
             confirm: function() {
-
                 var toX = parseInt(this.toX.getValue(), 10);
                 var toY = parseInt(this.toY.getValue(), 10);
 

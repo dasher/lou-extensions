@@ -129,7 +129,7 @@ loader.addFinishHandler(function() {
             },
             markMoonglowTower: function() {
                 var city = webfrontend.data.City.getInstance();
-                var buildings = a.visMain.getBuildings();
+                var buildings = app.visMain.getBuildings();
 
                 if (buildings.length == 0) {
                     bos.Utils.handleWarning(tr("you need to be in city"));
@@ -400,7 +400,7 @@ loader.addFinishHandler(function() {
                 var resources = [];
                 switch (event.getColumn()) {
                     case 1:
-                        a.setMainView("c", cityId, -1, -1);
+                        app.setMainView("c", cityId, -1, -1);
                         break;
                     case 2:
                         var cities = webfrontend.data.Player.getInstance().cities;
@@ -409,7 +409,7 @@ loader.addFinishHandler(function() {
                             var x = parseInt(city["xPos"]);
                             var y = parseInt(city["yPos"]);
 
-                            a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                            app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                         }
                         break;
                     case 17:

@@ -633,12 +633,13 @@ loader.addFinishHandler(function() {
                 }
             },
             _forceRegionMap: function() {
-                if (a.visMain.getMapMode() != "r") {
+                var app = qx.core.Init.getApplication();
+                if (app.visMain.getMapMode() != "r") {
                     var cityId = webfrontend.data.City.getInstance().getId();
                     var city = webfrontend.data.Player.getInstance().cities[cityId];
                     var x = city.xPos;
                     var y = city.yPos;
-                    a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                    app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                 }
             },
             updateView: function(isAutoRefreshed) {

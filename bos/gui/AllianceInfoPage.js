@@ -77,20 +77,22 @@ loader.addFinishHandler(function() {
                 var row = event.getRow();
                 var rowData = this._tableModel.getRowDataAsMap(row);
                 var name = rowData["name"];
+
                 if (name != null) {
-                    a.showInfoPage(a.getPlayerInfoPage(), {
+                    app.showInfoPage(app.getPlayerInfoPage(), {
                         name: name
                     });
                 }
             },
             _createToolBar: function() {
+
                 var toolBar = new qx.ui.groupbox.GroupBox();
                 toolBar.setLayout(new qx.ui.layout.Flow(10, 10));
 
                 this.allianceName = new qx.ui.form.TextField("");
                 this.allianceName.setToolTipText(tr("alliance name"));
                 this.allianceName.setWidth(120);
-                a.setElementModalInput(this.allianceName);
+                app.setElementModalInput(this.allianceName);
                 toolBar.add(this.allianceName);
 
                 var btnUpdateView = new qx.ui.form.Button(tr("refresh"));

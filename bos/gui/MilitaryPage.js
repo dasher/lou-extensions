@@ -139,14 +139,14 @@ loader.addFinishHandler(function() {
                 }
                 switch (event.getColumn()) {
                     case 1:
-                        a.setMainView("c", cityId, -1, -1);
+                        app.setMainView("c", cityId, -1, -1);
                         break;
                     case 2:
                         var cities = webfrontend.data.Player.getInstance().cities;
                         var city = cities[cityId];
                         if (city != null) {
                             var coords = bos.Utils.convertIdToCoordinatesObject(cityId);
-                            a.setMainView('r', 0, coords.xPos * a.visMain.getTileWidth(), coords.yPos * a.visMain.getTileHeight());
+                            app.setMainView('r', 0, coords.xPos * app.visMain.getTileWidth(), coords.yPos * app.visMain.getTileHeight());
                         }
                         break;
                 }
