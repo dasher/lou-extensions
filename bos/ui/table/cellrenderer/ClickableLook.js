@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - define bos.ui.table.cellrenderer.ClickableLook");
+    GM_log(" - loading bos.ui.table.cellrenderer.ClickableLook");
 
     qx.Class.define("bos.ui.table.cellrenderer.ClickableLook", {
         extend: bos.ui.table.cellrenderer.Default,

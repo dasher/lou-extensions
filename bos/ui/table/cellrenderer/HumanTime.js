@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - define bos.ui.table.cellrenderer.HumanTime");
+    GM_log(" - loading bos.ui.table.cellrenderer.HumanTime");
 
     qx.Class.define("bos.ui.table.cellrenderer.HumanTime", {
         extend: bos.ui.table.cellrenderer.Default,

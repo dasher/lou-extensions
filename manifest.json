@@ -34,7 +34,6 @@
         "bos/CityTypes.js",
         "bos/City.js",
         "bos/gui/SummaryPage.js",
-        "bos/ui/table/Table.js",
         "bos/gui/TradeOrdersPage.js",
         "bos/gui/TradeRouteWidget.js",
         "bos/gui/PurifyOptionsWidget.js",
@@ -61,9 +60,10 @@
         "bos/gui/FoodCalculatorWidget.js",
         "bos/gui/RecruitmentSpeedCalculatorWidget.js",
         "bos/gui/CombatCalculatorWidget.js",
-        "bos/ui/table/cellrenderer/Default",
-        "bos/ui/table/cellrenderer/HumanTime",
-        "bos/ui/table/cellrenderer/ClickableLook",
-        "bos/ui/table/cellrenderer/Resource"
+        "bos/ui/table/cellrenderer/Default.js",
+        "bos/ui/table/cellrenderer/HumanTime.js",
+        "bos/ui/table/cellrenderer/ClickableLook.js",
+        "bos/ui/table/cellrenderer/Resource.js",
+        "bos/ui/table/Table.js"
     ]
 }
