@@ -1,7 +1,14 @@
 /// Dynamic script loader for lou-extensions in Google Chrome.
 "use strict";
 /**
+<<<<<<< HEAD
  * @namespace lou_extensions
+=======
+ * Dynamic injection of javascript and css files based on the list
+ * of 'web_accessible_resources' in the manifest.json file
+ * @namespace lou_extensions
+ * @version 0.1.0
+>>>>>>> release-0.1
  */
 (function (window, undefined) {
     var lou_extensions = window.lou_extensions = {};
