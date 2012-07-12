@@ -4,7 +4,7 @@
 // @description Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)
 // @include     http://localhost*
 // @include     http://prodgame*.lordofultima.com/*
-// @version     0.2.0
+// @version     0.1.0
 // @run-at      document_end
 // @resource    bos/greasemonkey.light.js                    bos/greasemonkey.light.js
 // @resource    bos/sprintf-0.7-beta1.js                     bos/sprintf-0.7-beta1.js
@@ -90,6 +90,8 @@ function injectStyle (cssContent, mimeType, styleId) {
  * @param manifest
  */
 function loadExtensions(info) {
+
+    console.log(info.toSource());
 
     if (("resources" in info) &&  (info.resources !== null)) {
 
