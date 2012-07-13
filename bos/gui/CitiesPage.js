@@ -45,6 +45,7 @@ loader.addFinishHandler(function() {
                 columnModel.setColumnVisible(col++, false);
                 columnModel.setColumnVisible(col++, false);
                 columnModel.setColumnVisible(col++, false);
+                columnModel.setDataCellRenderer(col, new bos.ui.table.cellrenderer.FullAt());
                 columnModel.setColumnVisible(col++, false);
             }
 
@@ -165,6 +166,8 @@ loader.addFinishHandler(function() {
                         row["foodMax"] = parseInt(city.getResourceMaxStorage(bos.Const.FOOD));
                         row["foodIncoming"] = parseInt(city.getTradeIncomingResources(bos.Const.FOOD));
                         row["foodFullAt"] = city.getResourceStorageFullTime(bos.Const.FOOD);
+
+                        row["gold/h"] = city.getGoldGrowPerHour();
 
                         row["woodFree"] = row["woodMax"] - row["wood"];
                         row["stoneFree"] = row["stoneMax"] - row["stone"];

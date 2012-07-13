@@ -13,7 +13,8 @@ loader.addFinishHandler(function() {
         construct: function(mode){
             this.base(arguments);
             this._mode = mode || 0;
-        }, members: {
+        },
+        members: {
             _mode: 0,
             _getContentHtml: function(cellInfo) {
                 var value = cellInfo.value;

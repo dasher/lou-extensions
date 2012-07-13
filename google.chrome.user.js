@@ -13,9 +13,9 @@
      * Injects a link to a javascript file in the HEAD of a document.
      * @param {string} url - location of the javascript file to inject.
      * */
-    lou_extensions.injectJavascriptFile = function (url) {
+    lou_extensions.injectScriptLink = function (url, mimetype) {
         var scriptElement = document.createElement('script');
-        scriptElement.setAttribute("type", "text/javascript");
+        scriptElement.setAttribute("type", mimetype);
         scriptElement.setAttribute("src", url);
 
         if (typeof scriptElement != "undefined")
@@ -26,10 +26,10 @@
      * Injects a link to a stylesheet in the HEAD of a document.
      * @param {string} url - location of the javascript file to inject.
      * */
-    lou_extensions.injectStylesheet = function (url) {
+    lou_extensions.injectLinkStylesheet = function (url, mimetype) {
         var linkElement = document.createElement("link");
         linkElement.setAttribute("rel", "stylesheet");
-        linkElement.setAttribute("type", "text/css");
+        linkElement.setAttribute("type", mimetype);
         linkElement.setAttribute("href", url);
 
         if (typeof linkElement != "undefined")
@@ -47,12 +47,10 @@
                     var resource = manifest.web_accessible_resources[i];
 
                     if (resource.indexOf('.js', resource.length - 3) !== -1) {
-                        GM_log('[lou-extensions] - register ' + resource);
-                        lou_extensions.injectJavascriptFile(chrome.extension.getURL(resource));
+                        lou_extensions.injectScriptLink(chrome.extension.getURL(resource), "text/javascript");
 
                     } else if (resource.indexOf('.css', resource.length - 4) !== -1) {
-                        GM_log('[lou-extensions] - inject ' + resource);
-                        lou_extensions.injectStylesheet(chrome.extension.getURL(resource));
+                        lou_extensions.injectLinkStylesheet(chrome.extension.getURL(resource),"text/css");
                     }
                 } catch (e) {
                     GM_log('[lou-extensions] - ' + e)

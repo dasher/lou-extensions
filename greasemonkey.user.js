@@ -53,6 +53,7 @@
 // @resource    bos/ui/table/cellrenderer/HumanTime.js       bos/ui/table/cellrenderer/HumanTime.js
 // @resource    bos/ui/table/cellrenderer/ClickableLook.js   bos/ui/table/cellrenderer/ClickableLook.js
 // @resource    bos/ui/table/cellrenderer/Resource.js        bos/ui/table/cellrenderer/Resource.js
+// @resource    bos/ui/table/cellrenderer/FullAt.js          bos/ui/table/cellrenderer/FullAt.js
 // @resource    bos/ui/table/Table.js                        bos/ui/table/Table.js
 
 // ==/UserScript==
