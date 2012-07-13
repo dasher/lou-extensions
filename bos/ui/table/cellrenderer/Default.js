@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.ui.table.cellrenderer.Default");
+    GM_log(" - define bos.ui.table.cellrenderer.Default");
 
     qx.Class.define("bos.ui.table.cellrenderer.Default", {
         extend : qx.ui.table.cellrenderer.Default,

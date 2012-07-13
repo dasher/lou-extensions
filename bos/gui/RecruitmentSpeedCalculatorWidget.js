@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.RecruitmentSpeedCalculatorWidget");
+    GM_log(" - define bos.gui.RecruitmentSpeedCalculatorWidget");
 
     qx.Class.define("bos.gui.RecruitmentSpeedCalculatorWidget", {
         type: "singleton",

@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.FoodCalculatorWidget");
+    GM_log(" - define bos.gui.FoodCalculatorWidget");
 
     qx.Class.define("bos.gui.FoodCalculatorWidget", {
         type: "singleton",
@@ -99,7 +99,8 @@ loader.addFinishHandler(function() {
                     left: x + 120,
                     top: y + 6
                 });
-                a.setElementModalInput(countInput);
+                var app = qx.core.Init.getApplication();
+                app.setElementModalInput(countInput);
 
                 var result = {
                     'image': img,

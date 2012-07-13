@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.ResourcesFillerWidget");
+    GM_log(" - define bos.gui.ResourcesFillerWidget");
 
     qx.Class.define("bos.gui.ResourcesFillerWidget", {
         type: "singleton",

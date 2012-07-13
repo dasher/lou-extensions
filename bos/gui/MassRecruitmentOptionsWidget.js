@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.MassRecruitmentOptionsWidget");
+    GM_log(" - define bos.gui.MassRecruitmentOptionsWidget");
 
     qx.Class.define("bos.gui.MassRecruitmentOptionsWidget", {
         extend: qx.ui.window.Window,
@@ -122,7 +122,8 @@ loader.addFinishHandler(function() {
                     left: x + 120,
                     top: y + 6
                 });
-                a.setElementModalInput(countInput);
+                var app = qx.core.Init.getApplication();
+                app.setElementModalInput(countInput);
 
                 var btnMax = new qx.ui.form.Button("Max");
                 btnMax.setWidth(50);

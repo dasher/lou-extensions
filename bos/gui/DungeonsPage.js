@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.DungeonsPage");
+    GM_log(" - define bos.gui.DungeonsPage");
 
     qx.Class.define("bos.gui.DungeonsPage", {
         extend: bos.gui.SummaryPage,
@@ -55,13 +55,13 @@ loader.addFinishHandler(function() {
             createRowData: function() {
                 var rowData = [];
 
-                if (a.visMain.getMapMode() == "r") {
+                if (app.visMain.getMapMode() == "r") {
                     var cities = webfrontend.data.Player.getInstance().cities;
                     var city = webfrontend.data.City.getInstance();
                     var c = cities[city.getId()];
 
                     var res = webfrontend.res.Main.getInstance();
-                    var se = a.visMain.selectableEntities;
+                    var se = app.visMain.selectableEntities;
 
                     for (var s in se) {
                         var entity = se[s];
@@ -153,7 +153,7 @@ loader.addFinishHandler(function() {
                             if (sepPos > 0) {
                                 var x = parseInt(coords.substring(0, sepPos), 10);
                                 var y = parseInt(coords.substring(sepPos + 1), 10);
-                                a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                                app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                             }
                         }
                         break;

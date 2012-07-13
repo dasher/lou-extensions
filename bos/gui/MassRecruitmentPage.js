@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.MassRecruitmentPage");
+    GM_log(" - define bos.gui.MassRecruitmentPage");
 
     qx.Class.define("bos.gui.MassRecruitmentPage", {
         extend: bos.gui.SummaryPage,
@@ -561,7 +561,7 @@ loader.addFinishHandler(function() {
 
                 switch (e.getColumn()) {
                     case 0:
-                        a.setMainView("c", cityId, -1, -1);
+                        app.setMainView("c", cityId, -1, -1);
                         break;
                     case 1:
                         //action

@@ -4,7 +4,7 @@
  * Date: 7/07/12
  * Time: 23:53
  */
-loader.addFinishHandler(function() {
+loader.addFinishHandler(function () {
 
     GM_log(" - define bos.BatchResourcesFiller");
 
@@ -961,7 +961,8 @@ loader.addFinishHandler(function() {
                 if (L <= 0) return new Date(0);
                 var M = this.resources[K].step + (this.resources[K].max - this.resources[K].base) / this.resources[K].delta;
                 if (webfrontend.data.ServerTime.getInstance().getServerStep() >= M) return new Date(0);
-                return webfrontend.data.ServerTime.getInstance().getStepTime(M);
+                var ST = webfrontend.data.ServerTime.getInstance().getStepTime(M);
+                return webfrontend.Util.getDateTimeString(ST);
             }, getResourceStorageEmptyTime: function(l, m) {
                 if (!this.resources.hasOwnProperty(l)) return new Date(0);
                 var n = this.resources[l].step + this.resources[l].base / -(this.resources[l].delta - m);

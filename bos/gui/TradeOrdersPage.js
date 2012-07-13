@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.TradeOrdersPage");
+    GM_log(" - define bos.gui.TradeOrdersPage");
 
     qx.Class.define("bos.gui.TradeOrdersPage", {
         extend: bos.gui.SummaryPage,
@@ -225,7 +225,7 @@ loader.addFinishHandler(function() {
                     case 1:
                     case 2:
                         var cityId = parseInt(rowData["cityId"]);
-                        a.setMainView("c", cityId, -1, -1);
+                        app.setMainView("c", cityId, -1, -1);
                         break;
                     case 8:
                     case 9:
@@ -236,7 +236,7 @@ loader.addFinishHandler(function() {
                             if (sepPos > 0) {
                                 var x = parseInt(coords.substring(0, sepPos));
                                 var y = parseInt(coords.substring(sepPos + 1));
-                                a.setMainView('r', 0, x * a.visMain.getTileWidth(), y * a.visMain.getTileHeight());
+                                app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
                             }
                         }
                         break;

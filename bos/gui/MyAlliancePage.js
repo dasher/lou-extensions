@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.MyAlliancePage");
+    GM_log(" - define bos.gui.MyAlliancePage");
 
     qx.Class.define("bos.gui.MyAlliancePage", {
         extend: bos.gui.SummaryPage,
@@ -98,7 +98,7 @@ loader.addFinishHandler(function() {
 
                 var name = rowData["name"];
                 if (name != null) {
-                    a.showInfoPage(a.getPlayerInfoPage(), {
+                    app.showInfoPage(app.getPlayerInfoPage(), {
                         name: name
                     });
                 }

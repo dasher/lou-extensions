@@ -4,16 +4,13 @@
  * Date: 7/07/12
  * Time: 21:51
  */
+var locale = null;
 
-/**
- * loader.addFinishHandler(function () {
- *
- *    GM_log(" - loading bos.LocalizedStrings");
- *
- *    var server;
- *    var locale = qx.locale.Manager.getInstance().getLocale();
- * });
- */
+loader.addFinishHandler(function () {
+    GM_log(" - get locale");
+    locale = qx.locale.Manager.getInstance().getLocale();
+});
+
 
 GM_log(" - loading LocalizedStrings.js");
 
@@ -150,6 +147,8 @@ var bosLocalizedStrings = {
         "btnRefreshView_toolTip":"Refresh View",
         "btnRecruitAll":"Recruit All",
         "btnRecruitAll_toolTip":"Recruits all possible units",
+        "btnDefenceMinisterSetTargetArmy":"Set target army",
+        "btnDefenceMinisterSetTargetArmy_toolTip":"Use defense minister to set target army",
         "filter by: city types":"Filter by: <b>city types</b>",
         "purify":"Purify",
         "recruitment":"Recruitment",
@@ -396,6 +395,8 @@ var bosLocalizedStrings = {
         "btnRefreshView_toolTip":"Ansicht aktualisieren",
         "btnRecruitAll":"Rekrutiere alle",
         "btnRecruitAll_toolTip":"Rekrutiert alle Verfügbaren Einheiten",
+        "btnDefenceMinisterSetTargetArmy":"Set target army",
+        "btnDefenceMinisterSetTargetArmy_toolTip":"Use defense minister to set target army",
         "filter by: city types":"Filtern nach: <b>Stadttyp</b>",
         "purify":"Veredeln",
         "recruitment":"Rekrutieren",
@@ -597,6 +598,8 @@ var bosLocalizedStrings = {
         "btnRefreshView_toolTip":"Odśwież widok",
         "btnRecruitAll":"Rekrutuj Wszystko",
         "btnRecruitAll_toolTip":"Rekrutuje wszystkie możliwe jednostki",
+        "btnDefenceMinisterSetTargetArmy":"Set target army",
+        "btnDefenceMinisterSetTargetArmy_toolTip":"Use defense minister to set target army",
         "filter by: city types":"Filtruj po: <b>typach miast</b>",
         "purify":"Oczyść",
         "recruitment":"Rekrutacja",
@@ -686,4 +689,4 @@ function tr(messageId) {
     }
 
     return messageId;
-}
+};

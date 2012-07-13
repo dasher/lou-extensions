@@ -6,7 +6,7 @@
  */
 loader.addFinishHandler(function() {
 
-    GM_log(" - loading bos.gui.PurifyOptionsWidget");
+    GM_log(" - define bos.gui.PurifyOptionsWidget");
 
     qx.Class.define("bos.gui.PurifyOptionsWidget", {
         type: "singleton",
