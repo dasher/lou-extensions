@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name        lou-extensions
+// @name        LOU Extensions
 // @namespace   https://github.com/ConanLoxley/lou-extensions
 // @description Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)
 // @include     http://localhost*
 // @include     http://prodgame*.lordofultima.com/*
-// @version     0.2.0
+// @version     0.3.0
 // @run-at      document_end
 // @resource    bos/greasemonkey.light.js                    bos/greasemonkey.light.js
 // @resource    bos/sprintf-0.7-beta1.js                     bos/sprintf-0.7-beta1.js
@@ -53,6 +53,7 @@
 // @resource    bos/ui/table/cellrenderer/HumanTime.js       bos/ui/table/cellrenderer/HumanTime.js
 // @resource    bos/ui/table/cellrenderer/ClickableLook.js   bos/ui/table/cellrenderer/ClickableLook.js
 // @resource    bos/ui/table/cellrenderer/Resource.js        bos/ui/table/cellrenderer/Resource.js
+// @resource    bos/ui/table/cellrenderer/FullAt.js          bos/ui/table/cellrenderer/FullAt.js
 // @resource    bos/ui/table/Table.js                        bos/ui/table/Table.js
 
 // ==/UserScript==

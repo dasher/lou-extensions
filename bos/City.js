@@ -958,11 +958,10 @@ loader.addFinishHandler(function () {
             }, getResourceStorageFullTime: function(K) {
                 if (!this.resources.hasOwnProperty(K)) return new Date(0);
                 var L = this.getResourceGrowPerHour(K);
-                if (L <= 0) return new Date(0);
+                if (L <= 0) return "never";
                 var M = this.resources[K].step + (this.resources[K].max - this.resources[K].base) / this.resources[K].delta;
                 if (webfrontend.data.ServerTime.getInstance().getServerStep() >= M) return new Date(0);
-                var ST = webfrontend.data.ServerTime.getInstance().getStepTime(M);
-                return webfrontend.Util.getDateTimeString(ST);
+                return webfrontend.data.ServerTime.getInstance().getStepTime(M);
             }, getResourceStorageEmptyTime: function(l, m) {
                 if (!this.resources.hasOwnProperty(l)) return new Date(0);
                 var n = this.resources[l].step + this.resources[l].base / -(this.resources[l].delta - m);
