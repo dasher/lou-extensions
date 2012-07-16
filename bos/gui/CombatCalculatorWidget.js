@@ -13,7 +13,8 @@ loader.addFinishHandler(function() {
         extend: webfrontend.gui.OverlayWidget,
         construct: function() {
             webfrontend.gui.OverlayWidget.call(this);
-            this.app = qx.core.Init.getApplication();
+
+            this._louApp = qx.core.Init.getApplication();
 
             this.clientArea.setLayout(new qx.ui.layout.Canvas());
             this.setWidth(790);
@@ -105,7 +106,7 @@ loader.addFinishHandler(function() {
 
         },
         members: {
-            app: null,
+            _louApp: null,
             defUnits: null,
             defUnitContainer: null,
             attUnits: null,
@@ -711,8 +712,7 @@ loader.addFinishHandler(function() {
                 }
             },
             addReport: function(addDefenders) {
-
-                var rep = app.title.report;
+                var rep = this._louApp.title.report;
                 if (rep == null) {
                     if (locale == "de"){
                         bos.Utils.handleWarning("Der Reportframe ist nicht geöffnet, bitte klicke auf den Report-Button");
@@ -722,7 +722,7 @@ loader.addFinishHandler(function() {
                     return;
                 }
 
-                var rep = app.title.report;
+                var rep = this._louApp.title.report;
                 var ids = rep.headerData.getSelectedIds();
 
                 if (ids.length == 0 || (ids.length == 1 && ids[0] == 0) || ids.length != 1) {
@@ -871,7 +871,7 @@ loader.addFinishHandler(function() {
             },
             addDefences: function() {
                 var city = webfrontend.data.City.getInstance();
-                var buildings = app.visMain.getBuildings();
+                var buildings = this._louApp.visMain.getBuildings();
 
                 for (var key in this.defences) {
                     this.defences[key].count.setValue(0);
@@ -1167,7 +1167,7 @@ loader.addFinishHandler(function() {
                     top: y + 10
                 });
                 //XXX countInput.addListener("changeValue", this.updateResValue, this);
-                app.setElementModalInput(countInput);
+                this._louApp.setElementModalInput(countInput);
 
                 var result = {
                     image: img,
@@ -1202,7 +1202,7 @@ loader.addFinishHandler(function() {
                     top: y + 4
                 });
                 //XXX countInput.addListener("changeValue", this.updateResValue, this);
-                app.setElementModalInput(countInput);
+                this._louApp.setElementModalInput(countInput);
 
                 var losses = new qx.ui.basic.Label("");
                 container.add(losses, {

@@ -4,7 +4,7 @@
  * Dynamic injection of javascript and css files based on the list
  * of 'web_accessible_resources' in the manifest.json file
  * @namespace lou_extensions
- * @version 0.2.0
+ * @version 0.4.0
  */
 (function (window, undefined) {
     var lou_extensions = window.lou_extensions = {};

@@ -260,7 +260,7 @@ loader.addFinishHandler(function() {
                     case 1:
                     case 2:
                         var cityId = parseInt(rowData["cityId"]);
-                        app.setMainView("c", cityId, -1, -1);
+                        this._louApp.setMainView("c", cityId, -1, -1);
                         break;
                     case 8:
                     case 9:
@@ -271,7 +271,7 @@ loader.addFinishHandler(function() {
                             if (sepPos > 0) {
                                 var x = parseInt(coords.substring(0, sepPos), 10);
                                 var y = parseInt(coords.substring(sepPos + 1), 10);
-                                app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                                this._louApp.setMainView('r', 0, x * this._louApp.visMain.getTileWidth(), y * this._louApp.visMain.getTileHeight());
                             }
                         }
                         break;

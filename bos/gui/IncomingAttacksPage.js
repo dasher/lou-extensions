@@ -305,10 +305,10 @@ loader.addFinishHandler(function() {
                     case 2:
                         var cityId = parseInt(rowData["targetCityId"]);
                         if (!isNaN(cityId)) {
-                            app.setMainView("c", cityId, -1, -1);
+                            this._louApp.setMainView("c", cityId, -1, -1);
                             break;
                         }
-                    //yes, I dont want break here
+                    //yes, I don't want break here
                     case 3:
                         var pos = rowData["targetPosition"];
                         if (pos != null) {
@@ -317,7 +317,7 @@ loader.addFinishHandler(function() {
                             if (sepPos > 0) {
                                 var x = parseInt(coords.substring(0, sepPos), 10);
                                 var y = parseInt(coords.substring(sepPos + 1), 10);
-                                app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                                this._louApp.setMainView('r', 0, x * this._louApp.visMain.getTileWidth(), y * this._louApp.visMain.getTileHeight());
                             }
                         }
                         break;
@@ -334,7 +334,7 @@ loader.addFinishHandler(function() {
                                 if (event.getColumn() != 12) {
                                     webfrontend.gui.Util.openCityProfile(x, y);
                                 } else {
-                                    app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                                    this._louApp.setMainView('r', 0, x * this._louApp.visMain.getTileWidth(), y * this._louApp.visMain.getTileHeight());
                                 }
 
                             }
@@ -342,13 +342,13 @@ loader.addFinishHandler(function() {
                         break;
                     case 13:
                     case 14:
-                        app.showInfoPage(app.getPlayerInfoPage(), {
+                        this._louApp.showInfoPage(this._louApp.getPlayerInfoPage(), {
                             name: rowData["playerName"]
                         });
                         break;
                     case 15:
                     case 16:
-                        app.showInfoPage(app.getAllianceInfoPage(), {
+                        this._louApp.showInfoPage(this._louApp.getAllianceInfoPage(), {
                             name: rowData["allianceName"]
                         });
                         break;

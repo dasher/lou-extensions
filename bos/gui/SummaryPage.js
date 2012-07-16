@@ -12,10 +12,10 @@ loader.addFinishHandler(function() {
         extend: qx.ui.tabview.Page,
         construct: function() {
             qx.ui.tabview.Page.call(this);
-            app = qx.core.Init.getApplication();
+            this._louApp = qx.core.Init.getApplication();
         },
         members: {
-            app : null,
+            _louApp : null,
             _table: null,
             _tableModel: null,
             _addBlankValuesToRow: function(row, tableModel) {

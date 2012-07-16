@@ -110,8 +110,8 @@ loader.addFinishHandler(function() {
                 });
                 this.description = new qx.ui.form.TextField("");
                 this.description.setWidth(320);
-                var app = qx.core.Init.getApplication();
-                app.setElementModalInput(this.description);
+
+                qx.core.Init.getApplication().setElementModalInput(this.description);
                 container.add(this.description, {
                     row: row,
                     column : 1

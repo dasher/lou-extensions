@@ -12,6 +12,7 @@ loader.addFinishHandler(function() {
         extend: bos.gui.SummaryPage,
         construct: function() {
             bos.gui.SummaryPage.call(this);
+
             this.setLabel(tr("player"));
             this.setLayout(new qx.ui.layout.VBox(10));
 
@@ -52,8 +53,8 @@ loader.addFinishHandler(function() {
             cbPalaces: null,
             minScoreInput: null,
             playerInfo: null,
-            createRowData: function() {
 
+            createRowData: function() {
                 var rowData = [];
 
                 if (this.playerInfo == null) {
@@ -106,7 +107,6 @@ loader.addFinishHandler(function() {
                             break;
                     }
                     row["type"] = type;
-
                     row["name"] = city.n;
                     row["continent"] = webfrontend.data.Server.getInstance().getContinentFromCoords(city.x, city.y);
                     row["position"] = city.x + ":" + city.y;
@@ -129,7 +129,7 @@ loader.addFinishHandler(function() {
                     if (sepPos > 0) {
                         var x = parseInt(coords.substring(0, sepPos), 10);
                         var y = parseInt(coords.substring(sepPos + 1), 10);
-                        app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                        this._louApp.setMainView('r', 0, x * this._louApp.visMain.getTileWidth(), y * this._louApp.visMain.getTileHeight());
                     }
                 }
             },
@@ -140,7 +140,8 @@ loader.addFinishHandler(function() {
                 this.playerName = new qx.ui.form.TextField("");
                 this.playerName.setToolTipText(tr("player name"));
                 this.playerName.setWidth(120);
-                app.setElementModalInput(this.playerName);
+
+                this._louApp.setElementModalInput(this.playerName);
                 toolBar.add(this.playerName);
 
                 var btnUpdateView = new qx.ui.form.Button(tr("refresh"));

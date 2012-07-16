@@ -561,7 +561,7 @@ loader.addFinishHandler(function() {
 
                 switch (e.getColumn()) {
                     case 0:
-                        app.setMainView("c", cityId, -1, -1);
+                        this._louApp.setMainView("c", cityId, -1, -1);
                         break;
                     case 1:
                         //action
