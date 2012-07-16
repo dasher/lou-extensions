@@ -19,7 +19,7 @@
         "manifest.json",
         "bos/greasemonkey.light.js",
         "bos/sprintf-0.7-beta1.js",
-        "bos/Const.js",
+        "bos/const.js",
         "bos/LocalizedStrings.js",
         "bos/gui/ResourcesFillerWidget.js",
         "bos/BatchResourcesFiller.js",
