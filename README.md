@@ -10,9 +10,12 @@ This project aims to provide a community driven maintenance for Chrome extension
 
 I'm also introducing a dynamic plugin model that allows users to choose which of the includes extensions they want to activate. Following is a list of included extensions:
 
+
 download
 --------
-- Google Chrome version 18 or higher: [install latest version](https://github.com/ConanLoxley/lou-extensions/raw/master/.bin/lou-extensions.crx)
+- Homepage: visit the [lou-extension homepage](http://conanloxley.github.com/lou-extensions/).
+- Google Chrome version 18 or higher: [install packed extension](https://github.com/ConanLoxley/lou-extensions/raw/master/.bin/lou-extensions.crx).
+- Greasemonkey version 0.9.6 or higher: [install script from userscripts.org](http://userscripts.org/scripts/show/138566).
 
 
 extensions
