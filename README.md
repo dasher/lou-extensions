@@ -4,12 +4,16 @@ lou-extensions
 Collection of abandoned extensions for the browser game [Lord Of Ultima](http://www.lordofultima.com/) ("LOU")
 
 
-
 description
 -----------
-This project aims to provide a community driven maintaince for Chrome extension and GreaseMonkey scripts that are not maintained by their original authors anymore but still add vital functionality to LOU. On a regular basis EA and Phenomic studios launch new patches that break these extensions so they need to be fixed.
+This project aims to provide a community driven maintenance for Chrome extension and GreaseMonkey scripts that are not maintained by their original authors anymore but still add vital functionality to LOU. On a regular basis EA and Phenomic studios launch new patches that break these extensions so they need to be fixed.
 
 I'm also introducing a dynamic plugin model that allows users to choose which of the includes extensions they want to activate. Following is a list of included extensions:
+
+download
+--------
+- Google Chrome version 18 or higher: [install latest version](https://github.com/ConanLoxley/lou-extensions/raw/master/.bin/lou-extensions.crx)
+
 
 extensions
 ----------
