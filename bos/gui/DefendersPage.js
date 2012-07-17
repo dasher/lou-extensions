@@ -152,14 +152,14 @@ loader.addFinishHandler(function() {
                 }
                 switch (event.getColumn()) {
                     case 1:
-                        app.setMainView("c", cityId, -1, -1);
+                        this._louApp.setMainView("c", cityId, -1, -1);
                         break;
                     case 2:
                         var cities = webfrontend.data.Player.getInstance().cities;
                         var city = cities[cityId];
                         if (city != null) {
                             var coords = bos.Utils.convertIdToCoordinatesObject(cityId);
-                            app.setMainView('r', 0, coords.xPos * app.visMain.getTileWidth(), coords.yPos * app.visMain.getTileHeight());
+                            this._louApp.setMainView('r', 0, coords.xPos * this._louApp.visMain.getTileWidth(), coords.yPos * this._louApp.visMain.getTileHeight());
                         }
                         break;
                 }

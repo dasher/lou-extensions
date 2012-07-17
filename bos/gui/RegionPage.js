@@ -59,13 +59,13 @@ loader.addFinishHandler(function() {
         members: {
             createRowData: function() {
                 var rowData = [];
-                if (app.visMain.getMapMode() == "r") {
+                if (this._louApp.visMain.getMapMode() == "r") {
                     var cities = webfrontend.data.Player.getInstance().cities;
                     var city = webfrontend.data.City.getInstance();
                     var c = cities[city.getId()];
 
                     var res = webfrontend.res.Main.getInstance();
-                    var se = app.visMain.selectableEntities;
+                    var se = this._louApp.visMain.selectableEntities;
                     for (var s in se) {
                         var entity = se[s];
                         if (entity != null && entity instanceof webfrontend.vis.WorldCity) {
@@ -177,22 +177,20 @@ loader.addFinishHandler(function() {
                             if (sepPos > 0) {
                                 var x = parseInt(coords.substring(0, sepPos), 10);
                                 var y = parseInt(coords.substring(sepPos + 1), 10);
-                                app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                                this._louApp.setMainView('r', 0, x * this._louApp.visMain.getTileWidth(), y * this._louApp.visMain.getTileHeight());
                             }
                         }
                         break;
                     case 4:
                         if (rowData["playerId"]) {
-                            var app = qx.core.Init.getApplication();
-                            app.showInfoPage(app.getPlayerInfoPage(), {
+                            this._louApp.showInfoPage(this._louApp.getPlayerInfoPage(), {
                                 id: rowData["playerId"]
                             });
                         }
                         break;
                     case 6:
                         if (rowData["allianceId"]) {
-                            var app = qx.core.Init.getApplication();
-                            app.showInfoPage(app.getAllianceInfoPage(), {
+                            this._louApp.showInfoPage(this._louApp.getAllianceInfoPage(), {
                                 id: rowData["allianceId"]
                             });
                         }

@@ -79,7 +79,7 @@ loader.addFinishHandler(function() {
                 var name = rowData["name"];
 
                 if (name != null) {
-                    app.showInfoPage(app.getPlayerInfoPage(), {
+                    this._louApp.showInfoPage(this._louApp.getPlayerInfoPage(), {
                         name: name
                     });
                 }
@@ -92,7 +92,7 @@ loader.addFinishHandler(function() {
                 this.allianceName = new qx.ui.form.TextField("");
                 this.allianceName.setToolTipText(tr("alliance name"));
                 this.allianceName.setWidth(120);
-                app.setElementModalInput(this.allianceName);
+                this._louApp.setElementModalInput(this.allianceName);
                 toolBar.add(this.allianceName);
 
                 var btnUpdateView = new qx.ui.form.Button(tr("refresh"));

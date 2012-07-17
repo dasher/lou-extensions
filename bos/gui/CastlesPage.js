@@ -172,7 +172,7 @@ loader.addFinishHandler(function() {
                 var cityId = rowData["id"];
                 switch (event.getColumn()) {
                     case 1:
-                        app.setMainView("c", cityId, -1, -1);
+                        this._louApp.setMainView("c", cityId, -1, -1);
                         break;
                     case 2:
                         var cities = webfrontend.data.Player.getInstance().cities;
@@ -181,7 +181,7 @@ loader.addFinishHandler(function() {
                             var x = parseInt(city["xPos"], 10);
                             var y = parseInt(city["yPos"], 10);
 
-                            app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                            this._louApp.setMainView('r', 0, x * this._louApp.visMain.getTileWidth(), y * this._louApp.visMain.getTileHeight());
                         }
                         break;
                 }

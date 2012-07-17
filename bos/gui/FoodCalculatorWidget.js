@@ -99,8 +99,7 @@ loader.addFinishHandler(function() {
                     left: x + 120,
                     top: y + 6
                 });
-                var app = qx.core.Init.getApplication();
-                app.setElementModalInput(countInput);
+                qx.core.Init.getApplication().setElementModalInput(countInput);
 
                 var result = {
                     'image': img,

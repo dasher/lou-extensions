@@ -12,16 +12,21 @@ loader.addFinishHandler(function() {
         type: "singleton",
         extend: qx.core.Object,
         members: {
-            app: null,
-            gameStarted: function() {
+            __app: null,
+            gameStarted: function(louApp) {
                 trace("In gameStarted");
-                app = qx.core.Init.getApplication();
+
+                if( louApp === undefined) {
+                    this.__app = qx.core.Init.getApplication();
+                } else {
+                    this.__app = louApp;
+                }
 
                 this.tweakErrorReporting();
                 var res = webfrontend.res.Main.getInstance();
 
                 try {
-                    var container = app.title.reportButton.getLayoutParent();
+                    var container = this.__app.title.reportButton.getLayoutParent();
                     var menuColumns = container.getChildren().length;
 
                     var btnSummary = new qx.ui.form.Button(tr("summary")).set({
@@ -75,22 +80,21 @@ loader.addFinishHandler(function() {
                         var name = prompt(tr("please enter player name:"), "");
                         if (name != null && name != "") {
                             //webfrontend.gui.Util.openPlayerProfile(name);
-                            app.showInfoPage(app.getPlayerInfoPage(), {
+                            this.__app.showInfoPage(this.__app.getPlayerInfoPage(), {
                                 name: name
                             });
                         }
-                    });
+                    }, this);
 
                     var btnJumpAlliance = new qx.ui.menu.Button(tr("jump to alliance"), null);
                     btnJumpAlliance.addListener("execute", function(event) {
                         var name = prompt(tr("please enter alliance name:"), "");
                         if (name != null && name != "") {
-                            //webfrontend.gui.Util.openAllianceProfile(name);
-                            app.showInfoPage(app.getAllianceInfoPage(), {
-                                name: name
+                            this.__app.showAllianceInfo(webfrontend.gui.AllianceInfoWindow.tabs.info, {
+                                name : name
                             });
                         }
-                    });
+                    }, this);
 
                     var btnJumpContinent = new qx.ui.menu.Button(tr("jump to continent"), null);
                     btnJumpContinent.addListener("execute", function(event) {
@@ -106,9 +110,9 @@ loader.addFinishHandler(function() {
                             var x = Math.floor(col * width + 0.5 * width);
                             var y = Math.floor(row * height + 0.5 * height);
 
-                            app.setMainView('r', 0, x * app.visMain.getTileWidth(), y * app.visMain.getTileHeight());
+                            this.__app.setMainView('r', 0, x * this.__app.visMain.getTileWidth(), y * this.__app.visMain.getTileHeight());
                         }
-                    });
+                    }, this);
 
                     var btnExtraSummary = new qx.ui.menu.Button(tr("extra summary"), null);
                     btnExtraSummary.addListener("execute", this.extraSummary);
@@ -185,7 +189,7 @@ loader.addFinishHandler(function() {
                     zoomBox.add(zoomSlider);
                     zoomBox.add(btnZoomReset);
 
-                    qx.core.Init.getApplication().getDesktop().add(zoomBox, {
+                    this.__app.getDesktop().add(zoomBox, {
                         left: 400 + 300,
                         top: 70,
                         right: null
@@ -195,13 +199,13 @@ loader.addFinishHandler(function() {
                     bos.Utils.handleError(tr("error during BOS Tools menu creation: ") + e);
                 }
 
-                app.overlaySizes[bos.Const.EXTRA_WIDE_OVERLAY] = {
+                this.__app.overlaySizes[bos.Const.EXTRA_WIDE_OVERLAY] = {
                     width: 0,
                     height: 0
                 };
 
-                var pos = app.overlayPositions[0];
-                app.overlayPositions[bos.Const.EXTRA_WIDE_OVERLAY] = {
+                var pos = this.__app.overlayPositions[0];
+                this.__app.overlayPositions[bos.Const.EXTRA_WIDE_OVERLAY] = {
                     left: pos.left,
                     top: pos.top,
                     bottom: pos.bottom
@@ -299,10 +303,10 @@ loader.addFinishHandler(function() {
                 //for city view
                 try {
                     if (qx.bom.client.Engine.GECKO) {
-                        app.visMain.scene.domRoot.style.MozTransform = "scale(" + zoom + ")";
-                        app.visMain.scene.domRoot.style["overflow"] = "hidden";
+                        this.__app.visMain.scene.domRoot.style.MozTransform = "scale(" + zoom + ")";
+                        this.__app.visMain.scene.domRoot.style["overflow"] = "hidden";
                     } else {
-                        app.visMain.scene.domRoot.style["zoom"] = zoom;
+                        this.__app.visMain.scene.domRoot.style["zoom"] = zoom;
                     }
                 } catch (ex) {
                     //ignore any exception
@@ -330,10 +334,10 @@ loader.addFinishHandler(function() {
                 }
 
                 trace("in tweakReports");
-                //app.title.reportButton.removeListener(app.title.reportButton, reportsBtnListener);
+                //this.__app.title.reportButton.removeListener(this.__app.title.reportButton, reportsBtnListener);
 
                 //webfrontend.gui.ReportListWidget
-                var rep = app.title.report;
+                var rep = this.__app.title.report;
                 if (rep == null) {
                     debug("rep is NULL");
                     return;
@@ -408,7 +412,7 @@ loader.addFinishHandler(function() {
                 behavior.setWidth(2, 90);
 
                 //webfrontend.gui.ReportPage
-                var reportPage = app.getReportPage();
+                var reportPage = this.__app.getReportPage();
                 var widgets = reportPage.getChildren();
                 var container = widgets[widgets.length - 1];
                 var btnExportThisReport = new qx.ui.form.Button("Export");
@@ -457,22 +461,22 @@ loader.addFinishHandler(function() {
 
             },
             tweakChat: function() {
-                var cls = app.chat;
+                var cls = this.__app.chat;
                 if (cls.oldOnNewMessage != undefined) {
                     //already applied
                     return;
                 }
 
-                app.chat.tabView.addListener("changeSelection", this._onChatChangeTab, this);
-                app.chat.tabView.setSelection([app.chat.tabView.getChildren()[1]]);
+                this.__app.chat.tabView.addListener("changeSelection", this._onChatChangeTab, this);
+                this.__app.chat.tabView.setSelection([this.__app.chat.tabView.getChildren()[1]]);
 
                 this._onChatChangeTab();
 
                 cls.oldOnNewMessage = cls._onNewMessage;
             },
             _onChatChangeTab: function(event) {
-                var chatId = app.chat.tabView.getSelection()[0].getUserData("ID");
-                var ch = app.chat.chatLine;
+                var chatId = this.__app.chat.tabView.getSelection()[0].getUserData("ID");
+                var ch = this.__app.chat.chatLine;
 
                 switch (chatId) {
                     case 0:
@@ -490,9 +494,8 @@ loader.addFinishHandler(function() {
             showJumpToCoordsDialog: function() {
                 var cwac = jumpCoordsDialog();
                 cwac.askCoords();
-                app.allowHotKey = false;
-                //qx.core.Init.getApplication().getDesktop().add(cwac, {left: 0, right: 0, top: 0, bottom: 0});
-                app.getDesktop().add(cwac, {left: 0, right: 0, top: 0, bottom: 0});
+                this.__app.allowHotKey = false;
+                this.__app.getDesktop().add(cwac, {left: 0, right: 0, top: 0, bottom: 0});
                 cwac.show();
             },
             showSummary: function() {
@@ -513,30 +516,30 @@ loader.addFinishHandler(function() {
                 server.updateCity();
                 var widget = this.getCombatCalculatorWidget();
                 //widget.updateView();
-                if (app.getCurrentOverlay() == widget) {
-                    app.switchOverlay(null);
+                if (this.__app.getCurrentOverlay() == widget) {
+                    this.__app.switchOverlay(null);
                 } else {
-                    app.switchOverlay(widget, bos.Const.EXTRA_WIDE_OVERLAY);
+                    this.__app.switchOverlay(widget, bos.Const.EXTRA_WIDE_OVERLAY);
                 }
             },
             showFoodCalc: function() {
                 var server = bos.Server.getInstance();
                 server.updateCity();
                 var widget = this.getFoodCalculatorWidget();
-                if (app.getCurrentOverlay() == widget) {
-                    app.switchOverlay(null);
+                if (this.__app.getCurrentOverlay() == widget) {
+                    this.__app.switchOverlay(null);
                 } else {
-                    app.switchOverlay(widget);
+                    this.__app.switchOverlay(widget);
                 }
             },
             showRecruitmentSpeedCalc: function () {
                 var server = bos.Server.getInstance();
                 server.updateCity();
                 var widget = this.getRecruitmentSpeedCalculatorWidget();
-                if (app.getCurrentOverlay() == widget) {
-                    app.switchOverlay(null);
+                if (this.__app.getCurrentOverlay() == widget) {
+                    this.__app.switchOverlay(null);
                 } else {
-                    app.switchOverlay(widget);
+                    this.__app.switchOverlay(widget);
                 }
             },
             getCombatCalculatorWidget: function() {

@@ -19,7 +19,7 @@ extensions
 Original:
 - Author: [Urthadar](http://userscripts.org/users/211182)
 - Script: [LoU BoS](http://userscripts.org/scripts/show/84343)
-- Version: [1.5.5](http://userscripts.org/scripts/version/84343/465458.user.js)
+- Version: [1.5.6](http://userscripts.org/scripts/version/84343/483795.user.js)
 
 Plugins:
 * ResourcesFillerWidget
