@@ -8,7 +8,7 @@
 // @run-at      document_end
 // @resource    bos/greasemonkey.light.js                    bos/greasemonkey.light.js
 // @resource    bos/sprintf-0.7-beta1.js                     bos/sprintf-0.7-beta1.js
-// @resource    bos/Const.js                                 bos/Const.js
+// @resource    bos/const.js                                 bos/const.js
 // @resource    bos/LocalizedStrings.js                      bos/LocalizedStrings.js
 // @resource    bos/gui/ResourcesFillerWidget.js             bos/gui/ResourcesFillerWidget.js
 // @resource    bos/BatchResourcesFiller.js                  bos/BatchResourcesFiller.js
