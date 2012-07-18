@@ -1,14 +1,13 @@
 {
     "name":"LOU Extensions",
-    "version":"0.4.0",
+    "version":"0.5.0",
     "manifest_version":2,
     "description":"Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)",
-    "converted_from_user_script":true,
     "content_scripts":[
         {
             "exclude_globs":[  ],
             "exclude_matches":[  ],
-            "include_globs":[ "http://prodgame*.lordofultima.com/*", "http://localhost*" ],
+            "include_globs":[ "http://prodgame*.lordofultima.com/*" ],
             "js":[ "google.chrome.user.js" ],
             "matches":[ "http://*/*", "https://*/*" ],
             "run_at":"document_end"

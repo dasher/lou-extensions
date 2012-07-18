@@ -4,7 +4,7 @@
  * Dynamic injection of javascript and css files based on the list
  * of 'web_accessible_resources' in the manifest.json file
  * @namespace lou_extensions
- * @version 0.4.0
+ * @version 0.5.0
  */
 (function (window, undefined) {
     var lou_extensions = window.lou_extensions = {};
@@ -53,7 +53,7 @@
                         lou_extensions.injectLinkStylesheet(chrome.extension.getURL(resource),"text/css");
                     }
                 } catch (e) {
-                    GM_log('[lou-extensions] - ' + e)
+                    console.log('[lou-extensions] - ' + e);
                 }
             }
         }
@@ -66,24 +66,21 @@
  * Main function
  */
 try {
-    GM_log('[lou-extensions] Loading LOU extensions');
+    console.log('[lou-extensions] Loading LOU extensions');
 
     if (chrome != undefined && chrome.extension != undefined) {
-
-        // load extensions manifest.json file
         var url = chrome.extension.getURL('manifest.json');
 
-        GM_xmlhttpRequest({
-            "url":url,
-            "onload":function (xhr) {
-                var manifest = JSON.parse(xhr.responseText);
-                lou_extensions.loadExtensions(manifest);
-            }
-        });
+        // load extensions manifest.json file
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, false);
+        xhr.send();
+        var manifest = JSON.parse(xhr.responseText);
+        lou_extensions.loadExtensions(manifest);
     } else {
-        GM_log('[lou-extensions] Chrome extensions not available. No lou-extensions were injected');
+        console('[lou-extensions] Chrome extensions not available. No lou-extensions were injected');
     }
 } catch (e) {
-    GM_log('[lou-extensions]' + e);
+    console('[lou-extensions]' + e);
 }
 
