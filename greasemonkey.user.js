@@ -3,7 +3,9 @@
 // @namespace   https://github.com/ConanLoxley/lou-extensions
 // @description Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)
 // @include     http://prodgame*.lordofultima.com/*
-// @version     0.5.0
+// @downloadURL https://userscripts.org/scripts/source/138566.user.js
+// @updateURL   https://bit.ly/PPzl0Y
+// @version     0.5.1
 // @run-at      document_end
 // @resource    bos/greasemonkey.light.js                    bos/greasemonkey.light.js
 // @resource    bos/sprintf-0.7-beta1.js                     bos/sprintf-0.7-beta1.js
@@ -15,8 +17,8 @@
 // @resource    bos/Server.js                                bos/Server.js
 // @resource    bos/Storage.js                               bos/Storage.js
 // @resource    bos/net/CommandManager.js                    bos/net/CommandManager.js
-// @resource    bos/Main.js                                  bos/Main.js
 // @resource    bos/Tweaks.js                                bos/Tweaks.js
+// @resource    bos/Main.js                                  bos/Main.js
 // @resource    bos/SharestringConverter.js                  bos/SharestringConverter.js
 // @resource    bos/Utils.js                                 bos/Utils.js
 // @resource    bos/CityTypes.js                             bos/CityTypes.js

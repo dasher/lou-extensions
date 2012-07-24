@@ -1,6 +1,7 @@
 {
     "name":"LOU Extensions",
     "version":"0.5.0",
+    "update_url": "http://conanloxley.github.com/lou-extensions/release/updates.xml",
     "manifest_version":2,
     "description":"Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)",
     "content_scripts":[
@@ -26,8 +27,8 @@
         "bos/Server.js",
         "bos/Storage.js",
         "bos/net/CommandManager.js",
-        "bos/Main.js",
         "bos/Tweaks.js",
+        "bos/Main.js",
         "bos/SharestringConverter.js",
         "bos/Utils.js",
         "bos/CityTypes.js",
