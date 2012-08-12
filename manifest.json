@@ -1,9 +1,13 @@
 {
     "name":"LOU Extensions",
     "version":"0.6.0",
-    "update_url": "http://conanloxley.github.com/lou-extensions/release/updates.xml",
     "manifest_version":2,
     "description":"Extension manager for Lord of Ultima (http://www.lordofultima.com/)",
+	"icons": { 
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},	
     "content_scripts":[
         {
             "exclude_globs":[  ],
