@@ -20,7 +20,7 @@ function bosCheckIfLoaded() {
     var app = null;
     if (typeof(qx) != "undefined") {
         app = qx.core.Init.getApplication();
-        if (app && app.chat && app.cityInfoView && app.title.reportButton) {
+        if (app && app.chat && app.cityInfoView && app.title && app.title.reportButton) {
             console.log("[bosCheckIfLoaded] Signal game started to bos.Tweak");
             bos.Tweaks.getInstance().gameStarted(app);
         } else {

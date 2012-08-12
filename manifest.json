@@ -1,9 +1,9 @@
 {
     "name":"LOU Extensions",
-    "version":"0.5.0",
+    "version":"0.6.0",
     "update_url": "http://conanloxley.github.com/lou-extensions/release/updates.xml",
     "manifest_version":2,
-    "description":"Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)",
+    "description":"Extension manager for Lord of Ultima (http://www.lordofultima.com/)",
     "content_scripts":[
         {
             "exclude_globs":[  ],
@@ -17,6 +17,10 @@
     "minimum_chrome_version":"18",
     "web_accessible_resources":[
         "manifest.json",
+        "extensions/widgets/UploadButton.js",
+        "extensions/widgets/UploadField.js",
+        "extensions/ui/AddScriptView.js",
+        "extensions/main.js",
         "bos/greasemonkey.light.js",
         "bos/sprintf-0.7-beta1.js",
         "bos/const.js",
