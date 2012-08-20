@@ -126,6 +126,18 @@ qx.Class.define("lou_extensions.widgets.UploadField",
                 init : "",
                 apply : "_applyIcon",
                 event : "changeIcon"
+            },
+
+            /**
+             * Text Content of opened file
+             */
+            fileText :
+            {
+                check : "String",
+                init : null,
+                nullable: true,
+                event  : "changeFileText",
+                apply  :"_applyFileText"
             }
         },
 
@@ -173,7 +185,7 @@ qx.Class.define("lou_extensions.widgets.UploadField",
                 this.getChildControl('button').setFieldName(value);
             },
             /**
-             * Upload butotn label modifier.
+             * Upload button label modifier.
              *
              * @type member
              * @param value {var} Current value
@@ -194,6 +206,19 @@ qx.Class.define("lou_extensions.widgets.UploadField",
             {
                 this.getChildControl('button').setIcon(value);
             },
+            /**
+             *
+             * @param value {string} New content of file
+             * @param old {string} Previous content of file
+             * @private
+             */
+            _applyFileText : function(value, old)
+            {
+                debugger;
+
+                this.fileText = value;
+                this.fireDataEvent('changeFileText', value);
+            },
 
             // ------------------------------------------------------------------------
             // [Setters / Getters]
@@ -210,7 +235,7 @@ qx.Class.define("lou_extensions.widgets.UploadField",
 
             /**
              * Returns component button widget.
-             * @deprecated Use getChildControl('textfield')
+             * @deprecated Use getChildControl('button')
              */
             getButton: function()
             {
@@ -236,6 +261,12 @@ qx.Class.define("lou_extensions.widgets.UploadField",
                 this.setFileName(value);
                 this.setFileSize(this.getChildControl('button').getFileSize());
             },
+            _onChangeFileText : function(e)
+            {
+                this.setFileText(e.getData());
+                //this.fileText = e.getData();
+                //this.fireDataEvent('changeFileText', this.fileText);
+            },
 
             // ------------------------------------------------------------------------
             // [Child Controls]
@@ -253,6 +284,7 @@ qx.Class.define("lou_extensions.widgets.UploadField",
                         control.setWidth(80);
                         this._add(control,{column: 1,row:0});
                         control.addListener("changeFileName", this._onChangeFileName, this);
+                        control.addListener("changeFileText", this._onChangeFileText, this);
                         break;
                     case "textfield":
                         control = new qx.ui.form.TextField();

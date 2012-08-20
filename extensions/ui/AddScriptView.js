@@ -53,7 +53,6 @@ loader.addFinishHandler(function() {
             isFromFile.setValue(true);
 
             isFromFile.bind("value", fileName, "enabled");
-            //isFromFile.bind("value", browseFileButton, "enabled");
             isFromUrl.bind("value", url, "enabled");
             isFromUrl.bind("value", downloadUrlButton, "enabled");
 
@@ -70,12 +69,14 @@ loader.addFinishHandler(function() {
             var scriptContent = new qx.ui.form.TextArea();
             this.add(scriptContent, {row:3, column:0, colSpan: 3})
 
+            fileName.bind("fileText", scriptContent, "value");
+
             // Toolbar action buttons
             var toolbar = new qx.ui.container.Composite();
             var fl = new qx.ui.layout.Flow(5,5);
             fl.setAlignX( "right" );
             toolbar.setLayout(fl);
-            //toolbar.setAlignX("right");
+
             var cancelScriptButton = new qx.ui.form.Button("Cancel");
             cancelScriptButton.setWidth(80);
             toolbar.add(cancelScriptButton);
@@ -85,7 +86,7 @@ loader.addFinishHandler(function() {
             this.add(toolbar, {row: 4, column: 0, colSpan: 3});
 
             cancelScriptButton.addListener("execute", function() {
-                this.fireEvent("cancel");
+                this.close();
             }, this);
 
             addScriptButton.addListener("execute", function() {

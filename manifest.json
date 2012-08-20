@@ -1,6 +1,7 @@
 {
     "name":"LOU Extensions",
     "version":"0.6.0",
+    "update_url": "http://conanloxley.github.com/lou-extensions/release/updates.xml",
     "manifest_version":2,
     "description":"Extension manager for Lord of Ultima (http://www.lordofultima.com/)",
 	"icons": { 
@@ -25,6 +26,8 @@
         "extensions/widgets/UploadField.js",
         "extensions/ui/AddScriptView.js",
         "extensions/main.js",
+        "compat/compat.qooxdoo.js",
+        "compat/compat.lou.js",
         "bos/greasemonkey.light.js",
         "bos/sprintf-0.7-beta1.js",
         "bos/const.js",

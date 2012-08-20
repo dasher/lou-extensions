@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
     <app appid='khglehfomokgnplhdlhaknmcifhlgeoo'>
-        <updatecheck codebase='http://conanloxley.github.com/lou-extensions/release/lou-extensions.crx' version='0.5.0' prodversionmin='18.0.1025.142'/>
+        <updatecheck codebase='http://conanloxley.github.com/lou-extensions/release/lou-extensions.crx' version='0.6.0' prodversionmin='18.0.1025.142'/>
     </app>
 </gupdate>

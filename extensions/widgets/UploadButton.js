@@ -71,7 +71,8 @@ qx.Class.define("lou_extensions.widgets.UploadButton",
         // --------------------------------------------------------------------------
 
         events: {
-            changeFileName: 'qx.event.type.Data'
+            changeFileName: 'qx.event.type.Data',
+            changeFileText: 'qx.event.type.Data'
         },
         properties:
         {
@@ -100,9 +101,18 @@ qx.Class.define("lou_extensions.widgets.UploadButton",
              * on FireFox and Chrome at least. So be prepared to get a 'Null' response.
              */
             fileSize: {
-                check: "Integer",
+                check : "Integer",
                 nullable : true,
                 init: null
+            },
+
+            /**
+             * text content of file
+             */
+            fileText : {
+                check: "String",
+                nullable : true,
+                init : null
             }
         },
 
@@ -247,18 +257,44 @@ qx.Class.define("lou_extensions.widgets.UploadButton",
                     name : ''
                 });
                 control.addListener("change", function(e){
-                    var controlDom = control.getDomElement();
+
+                    debugger;
+
+                    //filename
                     this.__valueInputOnChange = true;
-                    if (controlDom.files
-                        && controlDom.files.length > 0 ){
+                    var fileName = e.getData();
+                    this.setFileName(fileName);
+
+                    var controlDom = control.getDomElement();
+
+                    //HTML5
+                    if (window.FileReader && controlDom.files && controlDom.files.length > 0 ){
+                        var firstFile = controlDom.files[0];
                         this.setFileSize(
-                            typeof controlDom.files[0].fileSize != "undefined"
-                                ? controlDom.files[0].fileSize
-                                : controlDom.files[0].size);
+                            typeof firstFile.fileSize != "undefined" ? firstFile.fileSize : firstFile.size);
+
+                        var reader = new window.FileReader();
+                        reader.parentScope = this;
+                        reader.onload = function loaded(evt) {
+                            debugger;
+                            this.parentScope.setFileText(evt.target.result);
+                            this.parentScope.fireDataEvent('changeFileText', evt.target.result);
+                        }
+                        reader.readAsText(firstFile);
+                    } else if (window.ActiveXObject) { //Internet Explorer 9 and older
+                        var fso = new ActiveXObject("Scripting.FileSystemObject");
+                        var fileHandle = fso.OpenTextFile(fileName, 1); //1=forReading
+
+                        if( fileHandle.AtEndOfStream)
+                            this.setFileText("");
+                        else
+                            this.setFileText(fileHandle.ReadAll());
+
+                        fileHandle.Close();
+                        this.fireDataEvent('changeFileText', this.getFileText());
                     }
-                    var value = e.getData();
-                    this.setFileName(value);
-                    this.fireDataEvent('changeFileName',value);
+
+                    this.fireDataEvent('changeFileName',fileName);
                 },this);
 
                 return control;
