@@ -5,8 +5,10 @@
 // @include     http://prodgame*.lordofultima.com/*
 // @downloadURL https://userscripts.org/scripts/source/138566.user.js
 // @updateURL   https://bit.ly/PPzl0Y
-// @version     0.5.1
+// @version     0.6.0
 // @run-at      document_end
+// @resource    compat/compat.qooxdoo.js                     compat/compat.qooxdoo.js
+// @resource    compat/compat.lou.js                         compat/compat.lou.js
 // @resource    bos/greasemonkey.light.js                    bos/greasemonkey.light.js
 // @resource    bos/sprintf-0.7-beta1.js                     bos/sprintf-0.7-beta1.js
 // @resource    bos/const.js                                 bos/const.js
