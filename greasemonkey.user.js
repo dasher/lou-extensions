@@ -5,8 +5,10 @@
 // @include     http://prodgame*.lordofultima.com/*
 // @downloadURL https://userscripts.org/scripts/source/138566.user.js
 // @updateURL   https://bit.ly/PPzl0Y
-// @version     0.6.0
+// @version     0.6.2
 // @run-at      document_end
+// @grant       GM_getResourceText
+// @grant       GM_info
 // @resource    compat/compat.qooxdoo.js                     compat/compat.qooxdoo.js
 // @resource    compat/compat.lou.js                         compat/compat.lou.js
 // @resource    bos/greasemonkey.light.js                    bos/greasemonkey.light.js
@@ -102,7 +104,12 @@ function loadExtensions(info) {
             console.log('[lou-extensions] - register ' + resourceName);
 
             var text = GM_getResourceText(resourceName);
-            var mimeType = /data:(.+?);/.exec(GM_getResourceURL(resourceName))[1];
+
+            //https://github.com/ConanLoxley/lou-extensions/issues/4
+            //As of Greasemonkey 1.0, detection of the resources mimetype has changed.
+            //Putting a default value until GM devs provide me with a better way
+            //var mimeType = /data:(.+?);/.exec(GM_getResourceURL(resourceName))[1];
+            var mimeType = 'text/javascript';
 
             if(mimeType.indexOf('script') > -1 ) {
                 injectScript(text, mimeType, resourceName);
