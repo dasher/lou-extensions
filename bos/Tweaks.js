@@ -302,7 +302,7 @@ loader.addFinishHandler(function() {
 
                 //for city view
                 try {
-                    if (qx.bom.client.Engine.GECKO) {
+                    if (qx.core.Environment.get("engine.name") === "gecko") {
                         this.__app.visMain.scene.domRoot.style.MozTransform = "scale(" + zoom + ")";
                         this.__app.visMain.scene.domRoot.style["overflow"] = "hidden";
                     } else {

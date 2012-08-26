@@ -21,6 +21,9 @@ loader.addFinishHandler(function () {
     // ------------------------------------------------------------------------
     if (typeof webfrontend.gui.CellRendererHtmlCustom == "undefined")
         webfrontend.gui.CellRendererHtmlCustom = webfrontend.ui.CellRendererHtmlCustom;
+	
+    if (typeof webfrontend.gui.CustomTable == "undefined")
+        webfrontend.gui.CustomTable = webfrontend.ui.CustomTable;
 
     if (typeof webfrontend.gui.MessageBox == "undefined")
         webfrontend.gui.MessageBox = webfrontend.ui.MessageBox;
