@@ -66,3 +66,20 @@
 // @author		https://github.com/ConanLoxley
 // @author		https://github.com/TriMoon
 // ==/UserScript==
+
+/**
+ * Main function
+ */
+try {
+	console.log("[lou-extensions] Loading LOU extensions.");
+	
+	var info = getScriptMetaData();
+	
+	if (info.resources.length > 0) {
+		loadExtensions(info);
+	} else {
+		console.log("[lou-extensions] No resources found in MetaData block. No lou-extensions were injected");
+	}
+} catch (e) {
+	console.log("[lou-extensions]" + e.toSource());
+}

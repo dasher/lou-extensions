@@ -35,26 +35,30 @@ function loadExtensions(info) {
 	if (("resources" in info) && (info.resources !== null)) {
 		
 		for (var i = 0; i < info.resources.length; i++) {
-			var resourceName = info.resources[i];
-			console.log('[lou-extensions] - register ' + resourceName);
+			console.log('[lou-extensions] - register ' + info.resources[i].name);
 			
-			var text = GM_getResourceText(resourceName);
+			// grab contents of resource-file.
+			var ResourceContent = GM_getResourceText(info.resources[i].name);
+		//	console.info(ResourceContent);
+			// grab part after the last dot.
+			var ResourceFilext = /\w+$/g.exec(info.resources[i].src)[0];
+		//	console.info(ResourceFilext);
 			
-			//https://github.com/ConanLoxley/lou-extensions/issues/4
-			//As of Greasemonkey 1.0, detection of the resource's mimetype has changed.
-			//var mimeType = /data:(.+?);/.exec(GM_getResourceURL(resourceName))[1];
-			
-			debugger;
+		//	debugger;
 			
 			try {
-				if (resourceName.indexOf('.js', resourceName.length - 3) !== -1) {
-					injectScript(text, "text/javascript", resourceName);
-					
-				} else if (resourceName.indexOf('.css', resourceName.length - 4) !== -1) {
-					injectStyle(text, "text/css", resourceName);
-				} else {
-					console.log("Don't know how to inject a resource with this file extension. "
-						 + "Resource name: " + resourceName);
+				switch( ResourceFilext ){
+				case "js":
+					injectScript(ResourceContent, "text/javascript", info.resources[i].name);
+					break;
+				case "css":
+					injectStyle(ResourceContent, "text/css", info.resources[i].name);
+					break;
+				default:
+					console.log("Don't know how to inject a resource with this file extension."
+						 + "\n\tResource name: " + info.resources[i].name
+						 + "\n\tResource extension: " + ResourceFilext
+					);
 				}
 			} catch (e) {
 				console.log('[lou-extensions] - ' + e);
@@ -79,27 +83,14 @@ function getScriptMetaData() {
 		
 		if (resources != null) {
 			for (var i = 0; i < resources.length; i++) {
-				var resourceName = resources[i].split(/\b\s+/)[1];
-				info.resources.push(resourceName);
+				var resourceLine = resources[i].split(/\b\s+/);
+				info.resources.push({
+					name: resourceLine[1],
+					src: resourceLine[2]
+				});
 			}
 		}
 	}
+//	console.info(info);
 	return info;
-}
-
-/**
- * Main function
- */
-try {
-	console.log("[lou-extensions] Loading LOU extensions.");
-	
-	var info = getScriptMetaData();
-	
-	if (info.resources.length > 0) {
-		loadExtensions(info);
-	} else {
-		console.log("[lou-extensions] No resources found in MetaData block. No lou-extensions were injected");
-	}
-} catch (e) {
-	console.log("[lou-extensions]" + e.toSource());
 }
