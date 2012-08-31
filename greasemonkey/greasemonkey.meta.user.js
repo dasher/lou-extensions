@@ -5,7 +5,7 @@
 // @include		http://prodgame*.lordofultima.com/*
 // @downloadURL	https://github.com/TriMoon/lou-extensions/raw/trimoon/greasemonkey/greasemonkey.user.js
 // @updateURL	https://github.com/TriMoon/lou-extensions/raw/trimoon/greasemonkey/greasemonkey.meta.user.js
-// @version		0.6.3.tm1
+// @version		0.6.3.tm2
 // @run-at		document_end
 // @grant		GM_info
 // @grant		GM_getResourceText
@@ -63,6 +63,16 @@
 // @resource	bos_ui_table_cellrenderer_Resource			../bos/ui/table/cellrenderer/bos_ui_table_cellrenderer_Resource.js
 // @resource	bos_ui_table_cellrenderer_FullAt			../bos/ui/table/cellrenderer/bos_ui_table_cellrenderer_FullAt.js
 // @resource	bos_ui_table_Table							../bos/ui/table/bos_ui_table_Table.js
+// @resource	luo_tweak_globals							../louTweak/louTweak_globals.js
+// @resource	luo_tweak_LocalizedStrings					../louTweak/louTweak_LocalizedStrings.js
+// @resource	luo_tweak_main								../louTweak/louTweak_main.js
+// @resource	luo_tweak_queueTimesLabel					../louTweak/louTweak_queueTimesLabel.js
+// @resource	luo_tweak_incomingResourcesLabel			../louTweak/louTweak_incomingResourcesLabel.js
+// @resource	luo_tweak_optionsPage						../louTweak/louTweak_optionsPage.js
+// @resource	luo_tweak_overlayObject						../louTweak/louTweak_overlayObject.js
+// @resource	luo_tweak_layoutWindow						../louTweak/louTweak_layoutWindow.js
+// @resource	luo_tweak_miniMap							../louTweak/louTweak_miniMap.js
+// @resource	luo_tweak_checkIfLoaded						../louTweak/louTweak_checkIfLoaded.js
 // @author		https://github.com/ConanLoxley
 // @author		https://github.com/TriMoon
 // ==/UserScript==
