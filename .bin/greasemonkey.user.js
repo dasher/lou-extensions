@@ -4,7 +4,7 @@
 // @description	Collection of extensions for Lord of Ultima (http://www.lordofultima.com/)
 // @include		http://prodgame*.lordofultima.com/*
 // @downloadURL	https://github.com/TriMoon/lou-extensions/raw/trimoon/greasemonkey/greasemonkey.user.js
-// @updateURL	https://github.com/TriMoon/lou-extensions/raw/trimoon/greasemonkey/greasemonkey.meta.user.js
+// @updateURL	https://github.com/TriMoon/lou-extensions/raw/trimoon/greasemonkey/greasemonkey.user.js
 // @version		0.0.0.1
 // @run-at		document_end
 // @grant		GM_info
